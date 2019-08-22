@@ -5,15 +5,17 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { BoardComponent } from './board/board.component';
+import { GameComponent } from '@app/features/game/game.component';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent
+    GameComponent
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
@@ -21,4 +23,5 @@ import { BoardComponent } from './board/board.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Board } from '@app/shared/models/board/board';
-import { Player } from '@app/shared/models/player/player';
+import { Board } from '@shared/models/board/board';
+import { Player } from '@shared/models/player/player';
 
 @Injectable()
-export class BoardService {
+export class GameService {
 
   playerId = 1;
   boards: Board[] = [];
@@ -12,7 +12,7 @@ export class BoardService {
 
   // // method for creating a board which takes
   // // an optional size parameter that defaults to 5
-  // createBoard(size: number = 5): BoardService {
+  // createBoard(size: number = 5): GameService {
   //   // create tiles for board
   //   let tiles = [];
   //   for (let i = 0; i < size; i++) {
