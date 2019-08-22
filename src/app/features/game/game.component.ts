@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrManager } from 'ng6-toastr-notifications';
+import { ToastrService } from 'ngx-toastr';
 
 import { Player } from '@shared/models/player/player';
 import { Board } from '@shared/models/board/board';
 import { Mountain } from '@shared/models/mountain/mountain';
 import { Treasure } from '@shared/models/treasure/treasure';
-import { PlayerService } from '@core/services/player/player.service';
-import { MountainService } from '@core/services/mountain/mountain.service';
-import { TreasureService } from '@core/services/treasure/treasure.service';
-import { BoardService } from '@core/services/board/board.service';
-
+import { GameService } from './game.service';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
-  // providers: [PlayerService, MountainService, TreasureService, BoardService]
+  providers: [GameService]
 })
 
 export class GameComponent implements OnInit {
@@ -22,13 +18,19 @@ export class GameComponent implements OnInit {
   fileText;
 
   board: Board;
+  boardCreated = true;
+
   mountains: Mountain[];
+  montainsCreated = true;
+
   players: Player[];
+  playersCreated = true;
+
   treasures: Treasure[];
+  treasuresCreated = true;
 
   constructor(
-    private toastr: ToastrManager, private playerService: PlayerService, private mountainService: MountainService,
-    private treasureService: TreasureService, private boardService: BoardService
+    private toastr: ToastrService, private gameService: GameService
   ) {
     this.players = Array<Player>();
     this.mountains = Array<Mountain>();
@@ -40,20 +42,21 @@ export class GameComponent implements OnInit {
   fileUpload(event) {
     const reader = new FileReader();
     reader.readAsText(event.srcElement.files[0]);
-    reader.onloadend = (e) => {
-      console.log('reader', reader.result);
+    reader.onloadend = () => {
       this.fileText = reader.result;
     };
   }
 
   startGame() {
+    this.resetGame();
     if (this.fileText !== undefined && typeof (this.fileText) === 'string') {
       console.log('fileText: ', this.fileText.split('\n'));
       const parsedFileText = Array<string>();
       Object.assign(parsedFileText, this.fileText.split('\n'));
       this.initBoard(parsedFileText);
     } else {
-      this.toastr.errorToastr('The array is empty');
+      this.toastr.error('The array is empty');
+      throw new Error('The array is empty');
     }
   }
 
@@ -62,35 +65,114 @@ export class GameComponent implements OnInit {
       console.log('line', line);
       this.createBoardFromLine(line);
     });
+
     console.log('players', this.players);
+    this.players.forEach(player => {
+      this.gameService.movePlayer(player);
+    });
     console.log('board', this.board);
     console.log('treasures', this.treasures);
     console.log('mountains', this.mountains);
   }
 
   createBoardFromLine(line: string) {
-    console.log(line.charAt(0));
     switch (line.charAt(0)) {
       case 'M': {
-        this.mountains.push(this.mountainService.createMountain(line));
+        this.createMountains(line);
         break;
       }
       case 'T': {
-        this.treasures.push(this.treasureService.createTreasure(line));
+        this.createTreasure(line);
         break;
       }
       case 'A': {
-        this.players.push(this.playerService.createPlayer(line));
+        this.createPlayers(line);
         break;
       }
       case 'C': {
-        this.board = this.boardService.createBoard(line);
+        this.createBoard(line);
         break;
       }
     }
   }
+
+  createMountains(line: string) {
+    const lineElements = line.split('- ');
+    const mountainHorizontalLocation = +lineElements;
+    const mountainVerticalLocation = +lineElements;
+
+    if (mountainHorizontalLocation < 0 || mountainVerticalLocation < 0) {
+      this.montainsCreated = false;
+    }
+
+    if (this.montainsCreated === false) {
+      this.toastr.error('Eror on montains creation');
+      throw new Error('Eror on montains creation');
+    } else {
+      this.mountains.push(new Mountain(mountainHorizontalLocation, mountainVerticalLocation));
+    }
+  }
+
+  createPlayers(line: string) {
+    const lineElements = line.split('- ');
+    const name = lineElements[1].trim();
+    const playerHorizontalLocation = +lineElements[2];
+    const playerVerticalLocation = +lineElements[3];
+    const direction = lineElements[4].trim();
+    const path = lineElements[5].trim();
+
+    if (playerHorizontalLocation < 0 || playerVerticalLocation < 0 || name.length < 0 || direction.length < 0 || path.length < 0) {
+      this.playersCreated = false;
+    }
+
+    if (this.playersCreated === false) {
+      this.toastr.error('Eror on players creation');
+      throw new Error('Eror on montain location');
+    } else {
+      this.players.push(new Player(name, playerHorizontalLocation, playerVerticalLocation, direction, path));
+    }
+  }
+
+  createTreasure(line: string) {
+    const lineElements = line.split('- ');
+    const treasureHorizontalLocation = +lineElements[1];
+    const treasureVerticalLocation = +lineElements[2];
+    const score = +lineElements[3].trim();
+
+    if (treasureHorizontalLocation < 0 || treasureVerticalLocation < 0) {
+      this.treasuresCreated = false;
+    }
+
+    if (this.treasuresCreated === false) {
+      this.toastr.error('Eror on treasures creation');
+      throw new Error('Eror on treasures creation');
+    } else {
+      this.treasures.push(new Treasure(treasureHorizontalLocation, treasureVerticalLocation, score));
+    }
+  }
+
+  createBoard(line: string) {
+    const lineElements = line.split('- ');
+    const boardHorizontalLocation = +lineElements[1];
+    const boardVerticalLocation = +lineElements[2];
+
+    if (boardHorizontalLocation <= 0 || boardVerticalLocation <= 0) {
+      this.boardCreated = false;
+    }
+
+    if (this.boardCreated === false) {
+      this.toastr.error('Eror on board creation');
+      throw new Error('Eror on board creation');
+    } else {
+      this.board = new Board(boardHorizontalLocation, boardVerticalLocation);
+    }
+  }
+
+  resetGame() {
+    this.players.length = 0;
+    this.mountains.length = 0;
+    this.treasures.length = 0;
+  }
+
 }
-
-
-
 

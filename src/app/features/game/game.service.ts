@@ -5,11 +5,86 @@ import { Player } from '@shared/models/player/player';
 @Injectable()
 export class GameService {
 
-  playerId = 1;
-  boards: Board[] = [];
-
   constructor() { }
 
+  movePlayer(player: Player) {
+    const playerMoves = Array<Player>();
+    const firstPlayer = new Player('', 0, 0, '', '');
+    Object.assign(firstPlayer, player);
+    playerMoves.push(firstPlayer);
+
+    for (const move of firstPlayer.path) {
+      const lastPlayer = new Player('', 0, 0, '', '');
+      Object.assign(lastPlayer, playerMoves[playerMoves.length - 1]);
+      switch (move) {
+        case 'A': {
+          switch (lastPlayer.direction) {
+            case 'N': {
+              lastPlayer.playerVerticalLocation--;
+              break;
+            }
+            case 'S': {
+              console.log('south');
+              lastPlayer.playerVerticalLocation++;
+              break;
+            }
+            case 'E': {
+              lastPlayer.playerHorizontalLocation++;
+              break;
+            }
+            case 'O': {
+              lastPlayer.playerHorizontalLocation--;
+              break;
+            }
+          }
+          break;
+        }
+        case 'G': {
+          switch (lastPlayer.direction) {
+            case 'N': {
+              lastPlayer.direction = 'O';
+              break;
+            }
+            case 'S': {
+              lastPlayer.direction = 'E';
+              break;
+            }
+            case 'E': {
+              lastPlayer.direction = 'N';
+              break;
+            }
+            case 'O': {
+              lastPlayer.direction = 'S';
+            }
+          }
+          break;
+        }
+        case 'D': {
+          switch (lastPlayer.direction) {
+            case 'N': {
+              lastPlayer.direction = 'E';
+              break;
+            }
+            case 'S': {
+              lastPlayer.direction = 'O';
+              break;
+            }
+            case 'E': {
+              lastPlayer.direction = 'S';
+              break;
+            }
+            case 'O': {
+              lastPlayer.direction = 'N';
+              break;
+            }
+          }
+          break;
+        }
+      }
+      playerMoves.push(lastPlayer);
+    }
+    console.log('playerMoves', playerMoves);
+  }
   // // method for creating a board which takes
   // // an optional size parameter that defaults to 5
   // createBoard(size: number = 5): GameService {
