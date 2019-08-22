@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrManager } from 'ng6-toastr-notifications';
 
-import { Board } from '../board';
+import { Player } from '@app/shared/models/player/player';
+import { Board } from '@app/shared/models/board/board';
+import { Mountain } from '@app/shared/models/mountain/mountain';
+import { Treasure } from '@app/shared/models/treasure/treasure';
 import { BoardService } from './board.service';
-
-// set game constants
-const NUM_PLAYERS = 2;
-const BOARD_SIZE = 6;
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-board',
@@ -18,64 +18,104 @@ const BOARD_SIZE = 6;
 export class BoardComponent implements OnInit {
 
   fileText;
-  canPlay = true;
-  player = 0;
+  players: Player[];
+  board: Board;
+  mountains: Mountain[];
+  treasures: Treasure[];
+
+  b: number;
+  m: number;
+  a: number;
+  t: number;
 
   constructor(
     private toastr: ToastrManager,
-    private boardService: BoardService
-  ) {
-    // this.createBoards();
+  ) { }
+
+  ngOnInit() {
+    this.b = 0;
+    this.m = 0;
+    this.a = 0;
+    this.t = 0;
   }
 
   fileUpload(event) {
     const reader = new FileReader();
     reader.readAsText(event.srcElement.files[0]);
     reader.onloadend = (e) => {
-      console.log(reader.result);
+      console.log('reader', reader.result);
       this.fileText = reader.result;
-      console.log('end');
     };
   }
 
-  checkValidHit(boardId: number, tile: any): boolean {
-    if (boardId == this.player) {
-      this.toastr.errorToastr('Don\'t commit suicide.', 'You can\'t hit your own board.');
-      return false;
-    }
-    if (this.winner) {
-      this.toastr.errorToastr('Game is over');
-      return false;
-    }
-    if (!this.canPlay) {
-      this.toastr.errorToastr('A bit too eager.', 'It\'s not your turn to play.');
-      return false;
-    }
-    if (tile.value == 'X') {
-      this.toastr.errorToastr('Don\'t waste your torpedos.', 'You already shot here.');
-      return false;
-    }
-    return true;
-  }
-
-  createBoards() {
-    for (let i = 0; i < NUM_PLAYERS; i++) {
-      this.boardService.createBoard(BOARD_SIZE);
+  startGame() {
+    if (this.fileText !== undefined && typeof (this.fileText)  === 'string' ) {
+      console.log('fileText: ', this.fileText.split('\n'));
+      const parsedFileText = Array<string>();
+      Object.assign(parsedFileText, this.fileText.split('\n'));
+      this.initBoard(parsedFileText);
+    } else {
+      this.toastr.errorToastr('The array is empty');
     }
   }
 
-  // winner property to determine if a user has won the game.
-  // once a user gets a score higher than the size of the game
-  // board, he has won.
-  get winner(): Board {
-    return this.boards.find(board => board.player.score >= BOARD_SIZE);
+  initBoard(fileText: string[]) {
+    fileText.forEach(line => {
+      console.log('line', line);
+      this.getLineType(line);
+    });
   }
 
-  // get all boards and assign to boards property
-  get boards(): Board[] {
-    return this.boardService.getBoards();
+  getLineType(line: string) {
+    console.log(line.charAt(0));
+    switch (line.charAt(0)) {
+      case 'C': {
+        const match = line.split('- ');
+        console.log('board', match);
+        // const mountainHorizontalLocation = line.charAt();
+        // const mountainVerticalLocation: number;
+        // this.mountains.push(new Mountain());
+        break;
+      }
+      case 'M': {
+        // this.m++;
+        // console.log('mountain', this.m);
+        // const mountainHorizontalLocation = line.charAt();
+        // const mountainVerticalLocation: number;
+        // this.mountains.push(new Mountain());
+        break;
+      }
+      case 'T': {
+        // this.t++;
+        // console.log('treasure', this.t);
+        // const mountainHorizontalLocation = line.charAt();
+        // const mountainVerticalLocation: number;
+        // this.mountains.push(new Mountain());
+        break;
+      }
+      case 'A': {
+        const match = line.split('- ');
+        // this.a++;
+        // console.log('player', this.a);
+        // const mountainHorizontalLocation = line.charAt();
+        // const mountainVerticalLocation: number;
+        // this.mountains.push(new Mountain());
+        break;
+      }
+    }
   }
-  ngOnInit() {
+
+  getStringElementFromLine(line: string) {
+    const match = line.split('- ');
+    console.log(match);
+    match.forEach(char => {
+      const variable = match[char];
+      console.log(variable);
+    });
   }
 
 }
+
+
+
+
