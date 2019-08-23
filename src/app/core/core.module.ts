@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BoardService } from '@core/services/board/board.service';
 import { MountainService } from '@core/services/mountain/mountain.service';

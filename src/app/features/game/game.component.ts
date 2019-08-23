@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { Player } from '@shared/models/player/player';
@@ -6,6 +6,9 @@ import { Board } from '@shared/models/board/board';
 import { Mountain } from '@shared/models/mountain/mountain';
 import { Treasure } from '@shared/models/treasure/treasure';
 import { GameService } from './game.service';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { take } from 'rxjs/operators';
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -16,41 +19,52 @@ import { GameService } from './game.service';
 export class GameComponent implements OnInit {
 
   fileText;
+  textArea;
 
   board: Board;
   boardCreated = true;
+  numberOfBoards = 0;
 
-  mountains: Mountain[];
+  mountains = Array<Mountain>();
   montainsCreated = true;
 
-  players: Player[];
+  players = Array<Player>();
+  checkedlPlayerMoves = Array<Player>();
   playersCreated = true;
 
-  treasures: Treasure[];
+  treasures = Array<Treasure>();
   treasuresCreated = true;
 
+  // myForm: FormGroup;
+
   constructor(
-    private toastr: ToastrService, private gameService: GameService
-  ) {
-    this.players = Array<Player>();
-    this.mountains = Array<Mountain>();
-    this.treasures = Array<Treasure>();
-  }
+    private toastr: ToastrService, private gameService: GameService, private ngZone: NgZone
+  ) { }
+
+  @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
   ngOnInit() { }
 
   fileUpload(event) {
     const reader = new FileReader();
-    reader.readAsText(event.srcElement.files[0]);
-    reader.onloadend = () => {
-      this.fileText = reader.result;
-    };
+    const file = event.target.files[0];
+    this.autosize.reset();
+    if (file) {
+      reader.readAsText(file);
+      reader.onloadend = () => {
+        this.fileText = reader.result;
+        this.ngZone.onStable.pipe(take(1))
+          .subscribe(() => this.autosize.resizeToFitContent(true));
+      };
+    } else {
+      this.toastr.error('The array is empty');
+      throw new Error('The array is empty');
+    }
   }
 
   startGame() {
     this.resetGame();
     if (this.fileText !== undefined && typeof (this.fileText) === 'string') {
-      console.log('fileText: ', this.fileText.split('\n'));
       const parsedFileText = Array<string>();
       Object.assign(parsedFileText, this.fileText.split('\n'));
       this.initBoard(parsedFileText);
@@ -60,22 +74,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  initBoard(fileText: string[]) {
-    fileText.forEach(line => {
-      console.log('line', line);
-      this.createBoardFromLine(line);
-    });
-
-    console.log('players', this.players);
-    this.players.forEach(player => {
-      this.gameService.movePlayer(player);
-    });
-    console.log('board', this.board);
-    console.log('treasures', this.treasures);
-    console.log('mountains', this.mountains);
-  }
-
-  createBoardFromLine(line: string) {
+  createBoardFromTextLine(line: string) {
     switch (line.charAt(0)) {
       case 'M': {
         this.createMountains(line);
@@ -90,7 +89,13 @@ export class GameComponent implements OnInit {
         break;
       }
       case 'C': {
-        this.createBoard(line);
+        if (this.numberOfBoards === 0) {
+          this.createBoard(line);
+          this.numberOfBoards++;
+        } else {
+          this.toastr.error('There is more than one board input');
+          throw new Error('There is more than one board input');
+        }
         break;
       }
     }
@@ -98,8 +103,8 @@ export class GameComponent implements OnInit {
 
   createMountains(line: string) {
     const lineElements = line.split('- ');
-    const mountainHorizontalLocation = +lineElements;
-    const mountainVerticalLocation = +lineElements;
+    const mountainHorizontalLocation = +lineElements[1];
+    const mountainVerticalLocation = +lineElements[2];
 
     if (mountainHorizontalLocation < 0 || mountainVerticalLocation < 0) {
       this.montainsCreated = false;
@@ -172,6 +177,55 @@ export class GameComponent implements OnInit {
     this.players.length = 0;
     this.mountains.length = 0;
     this.treasures.length = 0;
+    this.numberOfBoards = 0;
+  }
+
+  initBoard(fileText: string[]) {
+    fileText.forEach(line => {
+      console.log('line', line);
+      this.createBoardFromTextLine(line);
+    });
+
+    this.players.forEach(player => {
+      const playerMovesBeforeCheck = this.gameService.movePlayer(player);
+      const checkedPlayerMoves = (this.checkPlayerMoves(playerMovesBeforeCheck, this.board, this.mountains));
+      console.log('checkedPlayerMoves', checkedPlayerMoves);
+    });
+
+    console.log('board', this.board);
+    console.log('treasures', this.treasures);
+    console.log('mountains', this.mountains);
+  }
+
+  checkPlayerMoves(playerMoves: Player[], board: Board, mountains: Mountain[]): Player[] {
+    let moveNumber = 0;
+
+    const checkedlPlayerMoves = Array<Player>();
+    playerMoves.forEach(playerMove => {
+      let warningOnBoard = false;
+      let warningOnMountain = false;
+
+      mountains.forEach(mountain => {
+        if (playerMove.playerHorizontalLocation === mountain.mountainHorizontalLocation
+          && playerMove.playerVerticalLocation === mountain.mountainVerticalLocation) {
+          this.toastr.warning('The move number: ' + moveNumber + ' meets a mountain');
+          warningOnMountain = true;
+        }
+      });
+
+      if (playerMove.playerHorizontalLocation > board.width || playerMove.playerHorizontalLocation < 0
+        || playerMove.playerVerticalLocation > board.height || playerMove.playerVerticalLocation < 0) {
+        this.toastr.warning('The move number: ' + moveNumber + ' is out of the board');
+        warningOnBoard = true;
+      }
+
+      if (warningOnBoard === false && warningOnMountain === false) {
+        checkedlPlayerMoves.push(playerMove);
+        moveNumber++;
+      }
+    });
+
+    return checkedlPlayerMoves;
   }
 
 }
