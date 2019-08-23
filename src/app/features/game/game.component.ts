@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs/operators';
+import * as _ from 'lodash';
+import { cloneDeep } from 'lodash';
 
 import { Player } from '@shared/models/player/player';
 import { Board } from '@shared/models/board/board';
@@ -7,7 +10,6 @@ import { Mountain } from '@shared/models/mountain/mountain';
 import { Treasure } from '@shared/models/treasure/treasure';
 import { GameService } from './game.service';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-game',
@@ -187,9 +189,11 @@ export class GameComponent implements OnInit {
     });
 
     this.players.forEach(player => {
+      const treasuresCopy = _.cloneDeep(this.treasures);
       const playerMovesBeforeCheck = this.gameService.movePlayer(player);
       const checkedPlayerMoves = (this.checkPlayerMoves(playerMovesBeforeCheck, this.board, this.mountains));
-      console.log('checkedPlayerMoves', checkedPlayerMoves);
+      const finalScore = this.gameService.getPlayerScore(checkedPlayerMoves, treasuresCopy);
+      const treasuresLeft = this.gameService.getTreasuresLeft(finalScore, this.treasures);
     });
 
     console.log('board', this.board);

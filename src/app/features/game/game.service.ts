@@ -88,10 +88,34 @@ export class GameService {
     return playerMoves;
   }
 
-  processPlayerScore(playerMoves: Player[], treasures: Treasure[]) {
-    playerMoves.forEach(playerMove => {
+  getPlayerScore(playerMoves: Player[], treasures: Treasure[]): number {
+    let finalScore = 0;
+    let playerCount = 0;
 
+    playerMoves.forEach(playerMove => {
+      treasures.forEach(treasure => {
+        if (playerMove.playerHorizontalLocation === treasure.treasureHorizontalLocation
+          && playerMove.playerVerticalLocation === treasure.treasureVerticalLocation
+          && playerMove.path.charAt(playerCount) === 'A' && treasure.score > 0) {
+          finalScore++;
+          --treasure.score;
+        }
+      });
+      playerCount++;
     });
+
+    return finalScore;
+  }
+
+  getTreasuresLeft(finalScore: number, treasures: Treasure[]): number {
+    let treasureCount = 0;
+    treasures.forEach(treasure => {
+      if (treasure.score > 0) {
+        treasureCount += treasure.score;
+      }
+    });
+
+    return treasureCount - finalScore;
   }
 
 }
