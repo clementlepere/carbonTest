@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { cloneDeep } from 'lodash';
+import * as saveAs from 'file-saver';
 
 import { Player } from '@shared/models/player/player';
 import { Board } from '@shared/models/board/board';
@@ -33,11 +34,13 @@ export class GameComponent implements OnInit {
   players = Array<Player>();
   checkedlPlayerMoves = Array<Player>();
   playersCreated = true;
+  playersOutput = Array<Player>();
+  playerOutputString = Array<string>();
 
   treasures = Array<Treasure>();
   treasuresCreated = true;
 
-  // myForm: FormGroup;
+  finalOutput = Array<string>();
 
   constructor(
     private toastr: ToastrService, private gameService: GameService, private ngZone: NgZone
@@ -69,7 +72,7 @@ export class GameComponent implements OnInit {
     if (this.fileText !== undefined && typeof (this.fileText) === 'string') {
       const parsedFileText = Array<string>();
       Object.assign(parsedFileText, this.fileText.split('\n'));
-      this.initBoard(parsedFileText);
+      this.initGameLoop(parsedFileText);
     } else {
       this.toastr.error('The array is empty');
       throw new Error('The array is empty');
@@ -179,22 +182,44 @@ export class GameComponent implements OnInit {
     this.players.length = 0;
     this.mountains.length = 0;
     this.treasures.length = 0;
+
+    this.finalOutput.length = 0;
     this.numberOfBoards = 0;
   }
 
-  initBoard(fileText: string[]) {
+  initGameLoop(fileText: string[]) {
     fileText.forEach(line => {
       console.log('line', line);
       this.createBoardFromTextLine(line);
     });
 
+    const treasuresCopy = _.cloneDeep(this.treasures);
     this.players.forEach(player => {
-      const treasuresCopy = _.cloneDeep(this.treasures);
       const playerMovesBeforeCheck = this.gameService.movePlayer(player);
       const checkedPlayerMoves = (this.checkPlayerMoves(playerMovesBeforeCheck, this.board, this.mountains));
       const finalScore = this.gameService.getPlayerScore(checkedPlayerMoves, treasuresCopy);
-      const treasuresLeft = this.gameService.getTreasuresLeft(finalScore, this.treasures);
+
+      checkedPlayerMoves[checkedPlayerMoves.length - 1].finalScore = finalScore;
+      this.playersOutput.push(checkedPlayerMoves[checkedPlayerMoves.length - 1]);
     });
+
+    this.finalOutput.push('C - ' + this.board.width + ' - ' + this.board.height + '\n');
+    treasuresCopy.forEach(treasure => {
+      this.finalOutput.push('T - ' + treasure.treasureHorizontalLocation + ' - ' + treasure.treasureVerticalLocation + ' - '
+        + treasure.score + '\n');
+    });
+
+    this.mountains.forEach(mountain => {
+      this.finalOutput.push('M - ' + mountain.mountainHorizontalLocation + ' - ' + mountain.mountainVerticalLocation + '\n');
+    });
+
+    this.playersOutput.forEach(player => {
+      this.finalOutput.push('A - ' + player.name + ' - ' + player.playerHorizontalLocation + ' - '
+        + player.playerVerticalLocation + ' - ' + player.finalScore + '\n');
+    });
+
+    const file = new Blob(this.finalOutput, { type: 'text/plain;charset=utf-8' });
+    saveAs(file, 'carbonTestOutPut.txt');
 
     console.log('board', this.board);
     console.log('treasures', this.treasures);

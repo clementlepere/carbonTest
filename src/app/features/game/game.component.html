@@ -13,9 +13,9 @@
   </div> -->
 <mat-grid-list cols="1" rowHeight="2:1">
   <div class="main-div">
-    <mat-card class="example-card">
+    <mat-card class="app-card">
       <mat-card-content>
-        <mat-form-field #heroForm class="example-full-width">
+        <mat-form-field #fileTextForm class="app-full-width">
           <button mat-raised-button color="primary" (click)="fileInput.click()">
             <mat-icon>library_add</mat-icon>
             <span> Select</span>
@@ -25,6 +25,8 @@
           <textarea class="app-textArea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
             [(ngModel)]="fileText" readonly></textarea>
         </mat-form-field>
+        <textarea *ngIf="finalOutput.length > 0" class="app-textArea" matInput cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize" [(ngModel)]="finalOutput" readonly></textarea>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()">Start the hunt!</button>
