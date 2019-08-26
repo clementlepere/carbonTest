@@ -17,25 +17,18 @@ describe('GameService', () => {
   });
 
   describe('getFinalScore', () => {
-    it('getFinalScore should return 2', () => {
+    let gameService: GameService;
+    beforeEach(() => gameService = TestBed.get(GameService));
 
-      let gameService: GameService;
-      beforeEach(() => gameService = TestBed.get(GameService));
-
-      const inputBoardData = new Board(3, 4);
+    it('getFinalScore should return 1', () => {
 
       const inputTreasuresData = Array<Treasure>();
-      inputTreasuresData.push(new Treasure(0, 3, 2));
-      inputTreasuresData.push(new Treasure(1, 3, 3));
-
-      const inputMountainsData = Array<Mountain>();
-      inputMountainsData.push(new Mountain(1, 0));
-      inputMountainsData.push(new Mountain(2, 1));
+      inputTreasuresData.push(new Treasure(1, 1, 2));
 
       const inputPlayersData = Array<Player>();
-      inputPlayersData.push(new Player('Lara', 1, 1, 'S', 'AADADAGGA'));
+      inputPlayersData.push(new Player('Lara', 1, 1, 'S', 'A'));
 
-      const expectedResult = 2;
+      const expectedResult = 1;
       expect(gameService.getPlayerScore(inputPlayersData, inputTreasuresData)).toEqual(expectedResult);
     });
   });

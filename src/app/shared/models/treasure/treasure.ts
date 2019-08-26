@@ -8,6 +8,6 @@ export class Treasure {
             ? 0 : treasureHorizontalLocation;
         this.treasureVerticalLocation = (treasureVerticalLocation <= 0 || treasureVerticalLocation === undefined)
             ? 0 : treasureVerticalLocation;
-        this.score = (score <= 0 || score === undefined) ? 0 : score;
+        this.score = (score < 0 || score === undefined) ? 0 : score;
     }
 }

@@ -188,7 +188,6 @@ export class GameComponent implements OnInit {
 
   initGameLoop(fileText: string[]) {
     fileText.forEach(line => {
-      console.log('line', line);
       this.createBoardFromTextLine(line);
     });
 

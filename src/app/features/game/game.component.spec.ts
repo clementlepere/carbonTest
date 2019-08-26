@@ -46,7 +46,7 @@ describe('GameComponent', () => {
       const inputData = 'A - Lara - 1 - 1 - S - AADADAGGA';
       const expectedResult = new Player('Lara', 1, 1, 'S', 'AADADAGGA');
       fixture.whenStable().then(() => {
-        expect(component.createMountain(inputData)).toEqual(expectedResult);
+        expect(component.createPlayer(inputData)).toEqual(expectedResult);
       });
     });
   });
@@ -54,9 +54,9 @@ describe('GameComponent', () => {
   describe('Treasure creation', () => {
     it('new treasure should be added to the array of treasures', () => {
       const inputData = 'T - 1 - 3 - 3';
-      const expectedResult = new Treasure(1, 2, 3);
+      const expectedResult = new Treasure(1, 3, 3);
       fixture.whenStable().then(() => {
-        expect(component.createMountain(inputData)).toEqual(expectedResult);
+        expect(component.createTreasure(inputData)).toEqual(expectedResult);
       });
     });
   });
@@ -66,7 +66,7 @@ describe('GameComponent', () => {
       const inputData = 'B - 3 - 4';
       const expectedResult = new Board(3, 4);
       fixture.whenStable().then(() => {
-        expect(component.createMountain(inputData)).toEqual(expectedResult);
+        expect(component.createBoard(inputData)).toEqual(expectedResult);
       });
     });
   });

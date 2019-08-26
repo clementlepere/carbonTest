@@ -4,7 +4,8 @@ import { Mountain } from '@shared/models/mountain/mountain';
 import { Treasure } from '@shared/models/treasure/treasure';
 
 import { Injectable } from '@angular/core';
-
+import * as _ from 'lodash';
+import { cloneDeep } from 'lodash';
 @Injectable()
 export class GameService {
 
@@ -92,30 +93,19 @@ export class GameService {
     let finalScore = 0;
     let playerCount = 0;
 
-    playerMoves.forEach(playerMove => {
+    const playerMovesCopy = _.cloneDeep(playerMoves);
+
+    playerMovesCopy.forEach(playerMove => {
       treasures.forEach(treasure => {
         if (playerMove.playerHorizontalLocation === treasure.treasureHorizontalLocation
           && playerMove.playerVerticalLocation === treasure.treasureVerticalLocation
           && playerMove.path.charAt(playerCount) === 'A' && treasure.score > 0) {
           finalScore++;
-          --treasure.score;
+          treasure.score--;
         }
       });
       playerCount++;
     });
-
     return finalScore;
   }
-
-  // getTreasuresLeft(finalScore: number, treasures: Treasure[]): number {
-  //   let treasureCount = 0;
-  //   treasures.forEach(treasure => {
-  //     if (treasure.score > 0) {
-  //       treasureCount += treasure.score;
-  //     }
-  //   });
-
-  //   return treasureCount - finalScore;
-  // }
-
 }
