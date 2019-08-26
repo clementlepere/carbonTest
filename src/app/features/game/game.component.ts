@@ -82,20 +82,20 @@ export class GameComponent implements OnInit {
   createBoardFromTextLine(line: string) {
     switch (line.charAt(0)) {
       case 'M': {
-        this.createMountains(line);
+        this.mountains.push(this.createMountain(line));
         break;
       }
       case 'T': {
-        this.createTreasure(line);
+        this.treasures.push(this.createTreasure(line));
         break;
       }
       case 'A': {
-        this.createPlayers(line);
+        this.players.push(this.createPlayer(line));
         break;
       }
       case 'C': {
         if (this.numberOfBoards === 0) {
-          this.createBoard(line);
+          this.board = this.createBoard(line);
           this.numberOfBoards++;
         } else {
           this.toastr.error('There is more than one board input');
@@ -106,7 +106,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  createMountains(line: string) {
+  createMountain(line: string): Mountain {
     const lineElements = line.split('- ');
     const mountainHorizontalLocation = +lineElements[1];
     const mountainVerticalLocation = +lineElements[2];
@@ -119,11 +119,11 @@ export class GameComponent implements OnInit {
       this.toastr.error('Eror on montains creation');
       throw new Error('Eror on montains creation');
     } else {
-      this.mountains.push(new Mountain(mountainHorizontalLocation, mountainVerticalLocation));
+      return new Mountain(mountainHorizontalLocation, mountainVerticalLocation);
     }
   }
 
-  createPlayers(line: string) {
+  createPlayer(line: string): Player {
     const lineElements = line.split('- ');
     const name = lineElements[1].trim();
     const playerHorizontalLocation = +lineElements[2];
@@ -139,11 +139,11 @@ export class GameComponent implements OnInit {
       this.toastr.error('Eror on players creation');
       throw new Error('Eror on montain location');
     } else {
-      this.players.push(new Player(name, playerHorizontalLocation, playerVerticalLocation, direction, path));
+      return new Player(name, playerHorizontalLocation, playerVerticalLocation, direction, path);
     }
   }
 
-  createTreasure(line: string) {
+  createTreasure(line: string): Treasure {
     const lineElements = line.split('- ');
     const treasureHorizontalLocation = +lineElements[1];
     const treasureVerticalLocation = +lineElements[2];
@@ -157,11 +157,11 @@ export class GameComponent implements OnInit {
       this.toastr.error('Eror on treasures creation');
       throw new Error('Eror on treasures creation');
     } else {
-      this.treasures.push(new Treasure(treasureHorizontalLocation, treasureVerticalLocation, score));
+      return new Treasure(treasureHorizontalLocation, treasureVerticalLocation, score);
     }
   }
 
-  createBoard(line: string) {
+  createBoard(line: string): Board {
     const lineElements = line.split('- ');
     const boardHorizontalLocation = +lineElements[1];
     const boardVerticalLocation = +lineElements[2];
@@ -174,7 +174,7 @@ export class GameComponent implements OnInit {
       this.toastr.error('Eror on board creation');
       throw new Error('Eror on board creation');
     } else {
-      this.board = new Board(boardHorizontalLocation, boardVerticalLocation);
+      return new Board(boardHorizontalLocation, boardVerticalLocation);
     }
   }
 
@@ -220,10 +220,6 @@ export class GameComponent implements OnInit {
 
     const file = new Blob(this.finalOutput, { type: 'text/plain;charset=utf-8' });
     saveAs(file, 'carbonTestOutPut.txt');
-
-    console.log('board', this.board);
-    console.log('treasures', this.treasures);
-    console.log('mountains', this.mountains);
   }
 
   checkPlayerMoves(playerMoves: Player[], board: Board, mountains: Mountain[]): Player[] {
