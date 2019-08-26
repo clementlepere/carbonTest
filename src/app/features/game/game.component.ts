@@ -214,7 +214,7 @@ export class GameComponent implements OnInit {
 
     this.playersOutput.forEach(player => {
       this.finalOutput.push('A - ' + player.name + ' - ' + player.playerHorizontalLocation + ' - '
-        + player.playerVerticalLocation + ' - ' + player.finalScore + '\n');
+        + player.playerVerticalLocation + ' - ' + player.direction + ' - ' + player.finalScore + '\n');
     });
 
     const file = new Blob(this.finalOutput, { type: 'text/plain;charset=utf-8' });
@@ -248,7 +248,6 @@ export class GameComponent implements OnInit {
         moveNumber++;
       }
     });
-
     return checkedlPlayerMoves;
   }
 

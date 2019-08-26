@@ -6,9 +6,7 @@ import { Mountain } from '@shared/models/mountain/mountain';
 import { Treasure } from '@shared/models/treasure/treasure';
 import { GameComponent } from './game.component';
 import { GameModule } from './game.module';
-import { CoreModule } from '@app/core/core.module';
 import { AppModule } from '@app/app.module';
-import { GameService } from './game.service';
 
 describe('GameComponent', () => {
   let component: GameComponent;

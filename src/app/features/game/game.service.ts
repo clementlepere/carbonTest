@@ -107,15 +107,15 @@ export class GameService {
     return finalScore;
   }
 
-  getTreasuresLeft(finalScore: number, treasures: Treasure[]): number {
-    let treasureCount = 0;
-    treasures.forEach(treasure => {
-      if (treasure.score > 0) {
-        treasureCount += treasure.score;
-      }
-    });
+  // getTreasuresLeft(finalScore: number, treasures: Treasure[]): number {
+  //   let treasureCount = 0;
+  //   treasures.forEach(treasure => {
+  //     if (treasure.score > 0) {
+  //       treasureCount += treasure.score;
+  //     }
+  //   });
 
-    return treasureCount - finalScore;
-  }
+  //   return treasureCount - finalScore;
+  // }
 
 }
