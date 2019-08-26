@@ -6,6 +6,7 @@ import { Treasure } from '@shared/models/treasure/treasure';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { cloneDeep } from 'lodash';
+
 @Injectable()
 export class GameService {
 
