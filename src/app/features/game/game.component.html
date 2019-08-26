@@ -29,7 +29,8 @@
           #autosize="cdkTextareaAutosize" [(ngModel)]="finalOutput" readonly></textarea>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()">Start the hunt!</button>
+        <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()"
+          [disabled]="!fileText">Start the hunt!</button>
       </mat-card-actions>
     </mat-card>
   </div>

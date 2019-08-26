@@ -16,7 +16,6 @@ import { CdkTextareaAutosize } from '@angular/cdk/text-field';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
-  providers: [GameService]
 })
 
 export class GameComponent implements OnInit {

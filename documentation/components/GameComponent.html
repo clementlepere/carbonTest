@@ -1,0 +1,1874 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>treasure-hunt documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">treasure-hunt documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GameComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/game/game.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-game</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./game.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./game.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#autosize">autosize</a>
+                            </li>
+                            <li>
+                                <a href="#board">board</a>
+                            </li>
+                            <li>
+                                <a href="#boardCreated">boardCreated</a>
+                            </li>
+                            <li>
+                                <a href="#checkedlPlayerMoves">checkedlPlayerMoves</a>
+                            </li>
+                            <li>
+                                <a href="#fileText">fileText</a>
+                            </li>
+                            <li>
+                                <a href="#finalOutput">finalOutput</a>
+                            </li>
+                            <li>
+                                <a href="#montainsCreated">montainsCreated</a>
+                            </li>
+                            <li>
+                                <a href="#mountains">mountains</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfBoards">numberOfBoards</a>
+                            </li>
+                            <li>
+                                <a href="#playerOutputString">playerOutputString</a>
+                            </li>
+                            <li>
+                                <a href="#players">players</a>
+                            </li>
+                            <li>
+                                <a href="#playersCreated">playersCreated</a>
+                            </li>
+                            <li>
+                                <a href="#playersOutput">playersOutput</a>
+                            </li>
+                            <li>
+                                <a href="#textArea">textArea</a>
+                            </li>
+                            <li>
+                                <a href="#treasures">treasures</a>
+                            </li>
+                            <li>
+                                <a href="#treasuresCreated">treasuresCreated</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkPlayerMoves">checkPlayerMoves</a>
+                            </li>
+                            <li>
+                                <a href="#createBoard">createBoard</a>
+                            </li>
+                            <li>
+                                <a href="#createBoardFromTextLine">createBoardFromTextLine</a>
+                            </li>
+                            <li>
+                                <a href="#createMountain">createMountain</a>
+                            </li>
+                            <li>
+                                <a href="#createPlayer">createPlayer</a>
+                            </li>
+                            <li>
+                                <a href="#createTreasure">createTreasure</a>
+                            </li>
+                            <li>
+                                <a href="#fileUpload">fileUpload</a>
+                            </li>
+                            <li>
+                                <a href="#initGameLoop">initGameLoop</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#resetGame">resetGame</a>
+                            </li>
+                            <li>
+                                <a href="#startGame">startGame</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(toastr: ToastrService, gameService: <a href="../injectables/GameService.html">GameService</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/game/game.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>toastr</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gameService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GameService.html" target="_self" >GameService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ngZone</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkPlayerMoves"></a>
+                    <span class="name">
+                        <b>
+                            checkPlayerMoves
+                        </b>
+                        <a href="#checkPlayerMoves"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkPlayerMoves(playerMoves: <a href="../classes/Player.html">Player[]</a>, board: <a href="../classes/Board.html">Board</a>, mountains: <a href="../classes/Mountain.html">Mountain[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="224"
+                            class="link-to-prism">src/app/features/game/game.component.ts:224</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>playerMoves</td>
+                                    <td>
+                                                <code><a href="../classes/Player.html" target="_self" >Player[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>board</td>
+                                    <td>
+                                                <code><a href="../classes/Board.html" target="_self" >Board</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>mountains</td>
+                                    <td>
+                                                <code><a href="../classes/Mountain.html" target="_self" >Mountain[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Player.html" target="_self" >Player[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBoard"></a>
+                    <span class="name">
+                        <b>
+                            createBoard
+                        </b>
+                        <a href="#createBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBoard(line: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/app/features/game/game.component.ts:163</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Board.html" target="_self" >Board</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBoardFromTextLine"></a>
+                    <span class="name">
+                        <b>
+                            createBoardFromTextLine
+                        </b>
+                        <a href="#createBoardFromTextLine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBoardFromTextLine(line: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/features/game/game.component.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createMountain"></a>
+                    <span class="name">
+                        <b>
+                            createMountain
+                        </b>
+                        <a href="#createMountain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createMountain(line: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/features/game/game.component.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Mountain.html" target="_self" >Mountain</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createPlayer"></a>
+                    <span class="name">
+                        <b>
+                            createPlayer
+                        </b>
+                        <a href="#createPlayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createPlayer(line: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/app/features/game/game.component.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Player.html" target="_self" >Player</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTreasure"></a>
+                    <span class="name">
+                        <b>
+                            createTreasure
+                        </b>
+                        <a href="#createTreasure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTreasure(line: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/features/game/game.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Treasure.html" target="_self" >Treasure</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileUpload"></a>
+                    <span class="name">
+                        <b>
+                            fileUpload
+                        </b>
+                        <a href="#fileUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fileUpload(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/features/game/game.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initGameLoop"></a>
+                    <span class="name">
+                        <b>
+                            initGameLoop
+                        </b>
+                        <a href="#initGameLoop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initGameLoop(fileText: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/app/features/game/game.component.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileText</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/features/game/game.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetGame"></a>
+                    <span class="name">
+                        <b>
+                            resetGame
+                        </b>
+                        <a href="#resetGame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetGame()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">src/app/features/game/game.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startGame"></a>
+                    <span class="name">
+                        <b>
+                            startGame
+                        </b>
+                        <a href="#startGame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startGame()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/features/game/game.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="autosize"></a>
+                        <span class="name">
+                            <b>
+                            autosize</b>
+                            <a href="#autosize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>CdkTextareaAutosize</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;autosize&#x27;, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/features/game/game.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="board"></a>
+                        <span class="name">
+                            <b>
+                            board</b>
+                            <a href="#board"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Board.html" target="_self" >Board</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/game/game.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="boardCreated"></a>
+                        <span class="name">
+                            <b>
+                            boardCreated</b>
+                            <a href="#boardCreated"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/game/game.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkedlPlayerMoves"></a>
+                        <span class="name">
+                            <b>
+                            checkedlPlayerMoves</b>
+                            <a href="#checkedlPlayerMoves"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Player&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/game/game.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileText"></a>
+                        <span class="name">
+                            <b>
+                            fileText</b>
+                            <a href="#fileText"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/game/game.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="finalOutput"></a>
+                        <span class="name">
+                            <b>
+                            finalOutput</b>
+                            <a href="#finalOutput"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;string&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/game/game.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="montainsCreated"></a>
+                        <span class="name">
+                            <b>
+                            montainsCreated</b>
+                            <a href="#montainsCreated"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/features/game/game.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mountains"></a>
+                        <span class="name">
+                            <b>
+                            mountains</b>
+                            <a href="#mountains"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Mountain&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/features/game/game.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberOfBoards"></a>
+                        <span class="name">
+                            <b>
+                            numberOfBoards</b>
+                            <a href="#numberOfBoards"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/game/game.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="playerOutputString"></a>
+                        <span class="name">
+                            <b>
+                            playerOutputString</b>
+                            <a href="#playerOutputString"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;string&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/game/game.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="players"></a>
+                        <span class="name">
+                            <b>
+                            players</b>
+                            <a href="#players"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Player&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/features/game/game.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="playersCreated"></a>
+                        <span class="name">
+                            <b>
+                            playersCreated</b>
+                            <a href="#playersCreated"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/game/game.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="playersOutput"></a>
+                        <span class="name">
+                            <b>
+                            playersOutput</b>
+                            <a href="#playersOutput"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Player&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/game/game.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="textArea"></a>
+                        <span class="name">
+                            <b>
+                            textArea</b>
+                            <a href="#textArea"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/features/game/game.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="treasures"></a>
+                        <span class="name">
+                            <b>
+                            treasures</b>
+                            <a href="#treasures"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Treasure&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/game/game.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="treasuresCreated"></a>
+                        <span class="name">
+                            <b>
+                            treasuresCreated</b>
+                            <a href="#treasuresCreated"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/features/game/game.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, NgZone } from &#x27;@angular/core&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+import { take } from &#x27;rxjs/operators&#x27;;
+import * as _ from &#x27;lodash&#x27;;
+import { cloneDeep } from &#x27;lodash&#x27;;
+import * as saveAs from &#x27;file-saver&#x27;;
+
+import { Player } from &#x27;@shared/models/player/player&#x27;;
+import { Board } from &#x27;@shared/models/board/board&#x27;;
+import { Mountain } from &#x27;@shared/models/mountain/mountain&#x27;;
+import { Treasure } from &#x27;@shared/models/treasure/treasure&#x27;;
+import { GameService } from &#x27;./game.service&#x27;;
+import { CdkTextareaAutosize } from &#x27;@angular/cdk/text-field&#x27;;
+
+@Component({
+  selector: &#x27;app-game&#x27;,
+  templateUrl: &#x27;./game.component.html&#x27;,
+  styleUrls: [&#x27;./game.component.css&#x27;],
+})
+
+export class GameComponent implements OnInit {
+
+  fileText;
+  textArea;
+
+  board: Board;
+  boardCreated &#x3D; true;
+  numberOfBoards &#x3D; 0;
+
+  mountains &#x3D; Array&lt;Mountain&gt;();
+  montainsCreated &#x3D; true;
+
+  players &#x3D; Array&lt;Player&gt;();
+  checkedlPlayerMoves &#x3D; Array&lt;Player&gt;();
+  playersCreated &#x3D; true;
+  playersOutput &#x3D; Array&lt;Player&gt;();
+  playerOutputString &#x3D; Array&lt;string&gt;();
+
+  treasures &#x3D; Array&lt;Treasure&gt;();
+  treasuresCreated &#x3D; true;
+
+  finalOutput &#x3D; Array&lt;string&gt;();
+
+  constructor(
+    private toastr: ToastrService, private gameService: GameService, private ngZone: NgZone
+  ) { }
+
+  @ViewChild(&#x27;autosize&#x27;, { static: false }) autosize: CdkTextareaAutosize;
+
+  ngOnInit() { }
+
+  fileUpload(event) {
+    const reader &#x3D; new FileReader();
+    const file &#x3D; event.target.files[0];
+    this.autosize.reset();
+    if (file) {
+      reader.readAsText(file);
+      reader.onloadend &#x3D; () &#x3D;&gt; {
+        this.fileText &#x3D; reader.result;
+        this.ngZone.onStable.pipe(take(1))
+          .subscribe(() &#x3D;&gt; this.autosize.resizeToFitContent(true));
+      };
+    } else {
+      this.toastr.error(&#x27;The array is empty&#x27;);
+      throw new Error(&#x27;The array is empty&#x27;);
+    }
+  }
+
+  startGame() {
+    this.resetGame();
+    if (this.fileText !&#x3D;&#x3D; undefined &amp;&amp; typeof (this.fileText) &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      const parsedFileText &#x3D; Array&lt;string&gt;();
+      Object.assign(parsedFileText, this.fileText.split(&#x27;\n&#x27;));
+      this.initGameLoop(parsedFileText);
+    } else {
+      this.toastr.error(&#x27;The array is empty&#x27;);
+      throw new Error(&#x27;The array is empty&#x27;);
+    }
+  }
+
+  createBoardFromTextLine(line: string) {
+    switch (line.charAt(0)) {
+      case &#x27;M&#x27;: {
+        this.mountains.push(this.createMountain(line));
+        break;
+      }
+      case &#x27;T&#x27;: {
+        this.treasures.push(this.createTreasure(line));
+        break;
+      }
+      case &#x27;A&#x27;: {
+        this.players.push(this.createPlayer(line));
+        break;
+      }
+      case &#x27;C&#x27;: {
+        if (this.numberOfBoards &#x3D;&#x3D;&#x3D; 0) {
+          this.board &#x3D; this.createBoard(line);
+          this.numberOfBoards++;
+        } else {
+          this.toastr.error(&#x27;There is more than one board input&#x27;);
+          throw new Error(&#x27;There is more than one board input&#x27;);
+        }
+        break;
+      }
+    }
+  }
+
+  createMountain(line: string): Mountain {
+    const lineElements &#x3D; line.split(&#x27;- &#x27;);
+    const mountainHorizontalLocation &#x3D; +lineElements[1];
+    const mountainVerticalLocation &#x3D; +lineElements[2];
+
+    if (mountainHorizontalLocation &lt; 0 || mountainVerticalLocation &lt; 0) {
+      this.montainsCreated &#x3D; false;
+    }
+
+    if (this.montainsCreated &#x3D;&#x3D;&#x3D; false) {
+      this.toastr.error(&#x27;Eror on montains creation&#x27;);
+      throw new Error(&#x27;Eror on montains creation&#x27;);
+    } else {
+      return new Mountain(mountainHorizontalLocation, mountainVerticalLocation);
+    }
+  }
+
+  createPlayer(line: string): Player {
+    const lineElements &#x3D; line.split(&#x27;- &#x27;);
+    const name &#x3D; lineElements[1].trim();
+    const playerHorizontalLocation &#x3D; +lineElements[2];
+    const playerVerticalLocation &#x3D; +lineElements[3];
+    const direction &#x3D; lineElements[4].trim();
+    const path &#x3D; lineElements[5].trim();
+
+    if (playerHorizontalLocation &lt; 0 || playerVerticalLocation &lt; 0 || name.length &lt; 0 || direction.length &lt; 0 || path.length &lt; 0) {
+      this.playersCreated &#x3D; false;
+    }
+
+    if (this.playersCreated &#x3D;&#x3D;&#x3D; false) {
+      this.toastr.error(&#x27;Eror on players creation&#x27;);
+      throw new Error(&#x27;Eror on montain location&#x27;);
+    } else {
+      return new Player(name, playerHorizontalLocation, playerVerticalLocation, direction, path);
+    }
+  }
+
+  createTreasure(line: string): Treasure {
+    const lineElements &#x3D; line.split(&#x27;- &#x27;);
+    const treasureHorizontalLocation &#x3D; +lineElements[1];
+    const treasureVerticalLocation &#x3D; +lineElements[2];
+    const score &#x3D; +lineElements[3].trim();
+
+    if (treasureHorizontalLocation &lt; 0 || treasureVerticalLocation &lt; 0) {
+      this.treasuresCreated &#x3D; false;
+    }
+
+    if (this.treasuresCreated &#x3D;&#x3D;&#x3D; false) {
+      this.toastr.error(&#x27;Eror on treasures creation&#x27;);
+      throw new Error(&#x27;Eror on treasures creation&#x27;);
+    } else {
+      return new Treasure(treasureHorizontalLocation, treasureVerticalLocation, score);
+    }
+  }
+
+  createBoard(line: string): Board {
+    const lineElements &#x3D; line.split(&#x27;- &#x27;);
+    const boardHorizontalLocation &#x3D; +lineElements[1];
+    const boardVerticalLocation &#x3D; +lineElements[2];
+
+    if (boardHorizontalLocation &lt;&#x3D; 0 || boardVerticalLocation &lt;&#x3D; 0) {
+      this.boardCreated &#x3D; false;
+    }
+
+    if (this.boardCreated &#x3D;&#x3D;&#x3D; false) {
+      this.toastr.error(&#x27;Eror on board creation&#x27;);
+      throw new Error(&#x27;Eror on board creation&#x27;);
+    } else {
+      return new Board(boardHorizontalLocation, boardVerticalLocation);
+    }
+  }
+
+  resetGame() {
+    this.players.length &#x3D; 0;
+    this.mountains.length &#x3D; 0;
+    this.treasures.length &#x3D; 0;
+
+    this.finalOutput.length &#x3D; 0;
+    this.numberOfBoards &#x3D; 0;
+  }
+
+  initGameLoop(fileText: string[]) {
+    fileText.forEach(line &#x3D;&gt; {
+      console.log(&#x27;line&#x27;, line);
+      this.createBoardFromTextLine(line);
+    });
+
+    const treasuresCopy &#x3D; _.cloneDeep(this.treasures);
+    this.players.forEach(player &#x3D;&gt; {
+      const playerMovesBeforeCheck &#x3D; this.gameService.movePlayer(player);
+      const checkedPlayerMoves &#x3D; (this.checkPlayerMoves(playerMovesBeforeCheck, this.board, this.mountains));
+      const finalScore &#x3D; this.gameService.getPlayerScore(checkedPlayerMoves, treasuresCopy);
+
+      checkedPlayerMoves[checkedPlayerMoves.length - 1].finalScore &#x3D; finalScore;
+      this.playersOutput.push(checkedPlayerMoves[checkedPlayerMoves.length - 1]);
+    });
+
+    this.finalOutput.push(&#x27;C - &#x27; + this.board.width + &#x27; - &#x27; + this.board.height + &#x27;\n&#x27;);
+    treasuresCopy.forEach(treasure &#x3D;&gt; {
+      this.finalOutput.push(&#x27;T - &#x27; + treasure.treasureHorizontalLocation + &#x27; - &#x27; + treasure.treasureVerticalLocation + &#x27; - &#x27;
+        + treasure.score + &#x27;\n&#x27;);
+    });
+
+    this.mountains.forEach(mountain &#x3D;&gt; {
+      this.finalOutput.push(&#x27;M - &#x27; + mountain.mountainHorizontalLocation + &#x27; - &#x27; + mountain.mountainVerticalLocation + &#x27;\n&#x27;);
+    });
+
+    this.playersOutput.forEach(player &#x3D;&gt; {
+      this.finalOutput.push(&#x27;A - &#x27; + player.name + &#x27; - &#x27; + player.playerHorizontalLocation + &#x27; - &#x27;
+        + player.playerVerticalLocation + &#x27; - &#x27; + player.finalScore + &#x27;\n&#x27;);
+    });
+
+    const file &#x3D; new Blob(this.finalOutput, { type: &#x27;text/plain;charset&#x3D;utf-8&#x27; });
+    saveAs(file, &#x27;carbonTestOutPut.txt&#x27;);
+  }
+
+  checkPlayerMoves(playerMoves: Player[], board: Board, mountains: Mountain[]): Player[] {
+    let moveNumber &#x3D; 0;
+
+    const checkedlPlayerMoves &#x3D; Array&lt;Player&gt;();
+    playerMoves.forEach(playerMove &#x3D;&gt; {
+      let warningOnBoard &#x3D; false;
+      let warningOnMountain &#x3D; false;
+
+      mountains.forEach(mountain &#x3D;&gt; {
+        if (playerMove.playerHorizontalLocation &#x3D;&#x3D;&#x3D; mountain.mountainHorizontalLocation
+          &amp;&amp; playerMove.playerVerticalLocation &#x3D;&#x3D;&#x3D; mountain.mountainVerticalLocation) {
+          this.toastr.warning(&#x27;The move number: &#x27; + moveNumber + &#x27; meets a mountain&#x27;);
+          warningOnMountain &#x3D; true;
+        }
+      });
+
+      if (playerMove.playerHorizontalLocation &gt; board.width || playerMove.playerHorizontalLocation &lt; 0
+        || playerMove.playerVerticalLocation &gt; board.height || playerMove.playerVerticalLocation &lt; 0) {
+        this.toastr.warning(&#x27;The move number: &#x27; + moveNumber + &#x27; is out of the board&#x27;);
+        warningOnBoard &#x3D; true;
+      }
+
+      if (warningOnBoard &#x3D;&#x3D;&#x3D; false &amp;&amp; warningOnMountain &#x3D;&#x3D;&#x3D; false) {
+        checkedlPlayerMoves.push(playerMove);
+        moveNumber++;
+      }
+    });
+
+    return checkedlPlayerMoves;
+  }
+
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;div class&#x3D;&quot;container flex-column&quot;&gt; --&gt;
+&lt;!-- &lt;input id&#x3D;&quot;file-upload&quot; type&#x3D;&quot;file&quot; accept&#x3D;&quot;.txt&quot; (change)&#x3D;&quot;fileUpload($event)&quot;&gt; --&gt;
+
+&lt;!-- &lt;textarea name&#x3D;&quot;text&quot; rows&#x3D;&quot;4&quot; cols&#x3D;&quot;50&quot; readonly&gt;{{fileText}}&lt;/textarea&gt; --&gt;
+&lt;!-- &lt;input type&#x3D;&quot;text&quot; rows&#x3D;&quot;4&quot; cols&#x3D;&quot;50&quot; readonly&gt;{{fileText}}&lt;/textarea&gt; --&gt;
+
+&lt;!-- &lt;div class&#x3D;&quot;custom-file&quot;&gt; --&gt;
+&lt;!-- &lt;input type&#x3D;&quot;file&quot; class&#x3D;&quot;custom-file-input&quot; id&#x3D;&quot;customFile&quot; (change)&#x3D;&quot;fileUpload($event)&quot;&gt;
+    &lt;label class&#x3D;&quot;custom-file-label&quot; for&#x3D;&quot;customFile&quot;&gt;Choose file&lt;/label&gt; --&gt;
+&lt;!-- &lt;button type&#x3D;&quot;button&quot; mat-raised-button (click)&#x3D;&quot;fileInput.click()&quot;&gt;Choose File&lt;/button&gt;
+    &lt;input hidden (change)&#x3D;&quot;fileUpload($event)&quot; #fileInput type&#x3D;&quot;file&quot; id&#x3D;&quot;file&quot;&gt;
+    &lt;textarea name&#x3D;&quot;text&quot; rows&#x3D;&quot;4&quot; cols&#x3D;&quot;50&quot; readonly&gt;{{fileText}}&lt;/textarea&gt;
+  &lt;/div&gt; --&gt;
+&lt;mat-grid-list cols&#x3D;&quot;1&quot; rowHeight&#x3D;&quot;2:1&quot;&gt;
+  &lt;div class&#x3D;&quot;app-main-div&quot;&gt;
+    &lt;mat-card class&#x3D;&quot;app-card&quot;&gt;
+      &lt;mat-card-content&gt;
+        &lt;mat-form-field #fileTextForm class&#x3D;&quot;app-full-width&quot;&gt;
+          &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;fileInput.click()&quot;&gt;
+            &lt;mat-icon&gt;library_add&lt;/mat-icon&gt;
+            &lt;span&gt; Select&lt;/span&gt;
+            &lt;input #fileInput type&#x3D;&quot;file&quot; (click)&#x3D;&quot;fileInput.value &#x3D; null&quot; value&#x3D;&quot;&quot; (change)&#x3D;&quot;fileUpload($event)&quot;
+              style&#x3D;&quot;display:none;&quot; /&gt;
+          &lt;/button&gt;
+          &lt;textarea class&#x3D;&quot;app-textArea&quot; matInput cdkTextareaAutosize #autosize&#x3D;&quot;cdkTextareaAutosize&quot;
+            [(ngModel)]&#x3D;&quot;fileText&quot; readonly&gt;&lt;/textarea&gt;
+        &lt;/mat-form-field&gt;
+        &lt;textarea *ngIf&#x3D;&quot;finalOutput.length &gt; 0&quot; class&#x3D;&quot;app-textArea&quot; matInput cdkTextareaAutosize
+          #autosize&#x3D;&quot;cdkTextareaAutosize&quot; [(ngModel)]&#x3D;&quot;finalOutput&quot; readonly&gt;&lt;/textarea&gt;
+      &lt;/mat-card-content&gt;
+      &lt;mat-card-actions&gt;
+        &lt;button mat-raised-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;margin:10px;&quot; (click)&#x3D;&quot;startGame()&quot;
+          [disabled]&#x3D;&quot;!fileText&quot;&gt;Start the hunt!&lt;/button&gt;
+      &lt;/mat-card-actions&gt;
+    &lt;/mat-card&gt;
+  &lt;/div&gt;
+&lt;/mat-grid-list&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./game.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.app-form {
+    width: 100%;
+}
+
+.app-full-width {
+    width: 100%;
+}
+
+.app-card {
+    width: 60%;
+    padding: 10px;
+}
+
+.app-main-div {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-textArea {
+    margin-top: 20px;
+    overflow: hidden;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- <div class="container flex-column"> --><!-- <input id="file-upload" type="file" accept=".txt" (change)="fileUpload($event)"> --><!-- <textarea name="text" rows="4" cols="50" readonly>{{fileText}}</textarea> --><!-- <input type="text" rows="4" cols="50" readonly>{{fileText}}</textarea> --><!-- <div class="custom-file"> --><!-- <input type="file" class="custom-file-input" id="customFile" (change)="fileUpload($event)">    <label class="custom-file-label" for="customFile">Choose file</label> --><!-- <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>    <input hidden (change)="fileUpload($event)" #fileInput type="file" id="file">    <textarea name="text" rows="4" cols="50" readonly>{{fileText}}</textarea>  </div> --><mat-grid-list cols="1" rowHeight="2:1">  <div class="app-main-div">    <mat-card class="app-card">      <mat-card-content>        <mat-form-field #fileTextForm class="app-full-width">          <button mat-raised-button color="primary" (click)="fileInput.click()">            <mat-icon>library_add</mat-icon>            <span> Select</span>            <input #fileInput type="file" (click)="fileInput.value = null" value="" (change)="fileUpload($event)"              style="display:none;" />          </button>          <textarea class="app-textArea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"            [(ngModel)]="fileText" readonly></textarea>        </mat-form-field>        <textarea *ngIf="finalOutput.length > 0" class="app-textArea" matInput cdkTextareaAutosize          #autosize="cdkTextareaAutosize" [(ngModel)]="finalOutput" readonly></textarea>      </mat-card-content>      <mat-card-actions>        <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()"          [disabled]="!fileText">Start the hunt!</button>      </mat-card-actions>    </mat-card>  </div></mat-grid-list></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GameComponent', 'selector': 'app-game'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GameComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GameComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
