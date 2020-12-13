@@ -10,7 +10,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],
-  providers: []
 })
 
 export class CoreModule {

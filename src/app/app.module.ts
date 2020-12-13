@@ -18,7 +18,6 @@ import { GameModule } from '@app/features/game/game.module';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 

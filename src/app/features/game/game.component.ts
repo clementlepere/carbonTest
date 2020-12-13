@@ -1,13 +1,13 @@
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import * as _ from 'lodash';
-import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import * as _ from 'lodash';
 
 import { Board } from '@shared/models/board/board';
+import { GameService } from './game.service';
 import { Player } from '@shared/models/player/player';
 import { Utils } from '@shared/utils/Utils';
-import { GameService } from './game.service';
 
 @Component({
   selector: 'app-game',
