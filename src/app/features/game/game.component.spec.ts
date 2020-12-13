@@ -59,7 +59,7 @@ describe('GameComponent', () => {
         expect(component.addMountain(board, line)).toEqual(expectedResult);
       });
     });
-    it('Should throw an error when inputs are not correct', () => {
+    it('Should throw an error when mountain inputs are incorrect', () => {
       const line = 'M - 99 - 0';
       fixture.whenStable().then(() => {
         expect(() => { component.addMountain(board, line); }).toThrow(new Error('Error on mountain creation'));
@@ -67,35 +67,31 @@ describe('GameComponent', () => {
     });
   });
 
-  // describe('Player creation', () => {
-  //   it('new player should be added to the array of players', () => {
-  //     const inputData = 'A - Lara - 1 - 1 - S - AADADAGGA';
-  //     const expectedResult = new Player('Lara', 1, 1, 'S', 'AADADAGGA');
-  //     fixture.whenStable().then(() => {
-  //       expect(component.addPlayer(inputData)).toEqual(expectedResult);
-  //     });
-  //   });
-  // });
+  describe('Player creation', () => {
+    const board = [
+      ['X', 'X', 'X'],
+      ['X', 'X', 'X'],
+      ['X', 'X', 'X'],
+    ];
+    it('Should add a new player to the board', () => {
+      const line = 'A - Lara - 1 - 1 - S - AADADAGGA';
 
-  // describe('Treasure creation', () => {
-  //   it('new treasure should be added to the array of treasures', () => {
-  //     const inputData = 'T - 1 - 3 - 3';
-  //     const expectedResult = new Treasure(1, 3, 3);
-  //     fixture.whenStable().then(() => {
-  //       expect(component.addTreasures(inputData)).toEqual(expectedResult);
-  //     });
-  //   });
-  // });
+      const expectedResult = [
+        ['X', 'X', 'X'],
+        ['X', 'A - Lara - 1 - 1 - S - 0', 'X'],
+        ['X', 'X', 'X'],
+      ];
 
-  // describe('Board creation', () => {
-  //   it('new board should be added to the board object', () => {
-  //     const inputData = 'B - 3 - 4';
-  //     const expectedResult = new Board(3, 4);
-  //     fixture.whenStable().then(() => {
-  //       expect(component.createBoard(inputData)).toEqual(expectedResult);
-  //     });
-  //   });
-  // });
-
+      fixture.whenStable().then(() => {
+        expect(component.addPlayer(board, line)).toEqual(expectedResult);
+      });
+    });
+    it('Should throw an error when player inputs are incorrect', () => {
+      const line = 'A - Lara - 99 - 1 - S - AADADAGGA';
+      fixture.whenStable().then(() => {
+        expect(() => { component.addPlayer(board, line); }).toThrow(new Error('Error on player creation'));
+      });
+    });
+  });
 });
 

@@ -1,6 +1,8 @@
+import { Injectable } from '@angular/core';
 
+@Injectable()
 
-export default class Utils {
+export class Utils {
     findValuesIn2DArray(array: Array<Array<string>>, value: string): string[] {
         const foundList = Array<string>();
         for (let x = 0; x < array.length; x++) {

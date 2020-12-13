@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Player } from '@shared/models/player/player';
 
 @Injectable()
+
 export class GameService {
 
   constructor() { }
@@ -15,7 +16,7 @@ export class GameService {
         case 'A': {
           switch (player.direction) {
             case 'N': {
-              if (this.checkMove(returnedBoard, --storedVerticalLocation, storedHorizontalLocation)
+              if (this.checkMoveValidity(returnedBoard, --storedVerticalLocation, storedHorizontalLocation)
               ) {
                 player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
                 returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
@@ -26,7 +27,7 @@ export class GameService {
               break;
             }
             case 'S': {
-              if (this.checkMove(returnedBoard, ++storedVerticalLocation, storedHorizontalLocation)
+              if (this.checkMoveValidity(returnedBoard, ++storedVerticalLocation, storedHorizontalLocation)
               ) {
                 player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
                 returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
@@ -37,7 +38,7 @@ export class GameService {
               break;
             }
             case 'E': {
-              if (this.checkMove(returnedBoard, storedVerticalLocation, ++storedHorizontalLocation)
+              if (this.checkMoveValidity(returnedBoard, storedVerticalLocation, ++storedHorizontalLocation)
               ) {
                 player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
                 returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
@@ -48,7 +49,7 @@ export class GameService {
               break;
             }
             case 'O': {
-              if (this.checkMove(returnedBoard, storedVerticalLocation, --storedHorizontalLocation)
+              if (this.checkMoveValidity(returnedBoard, storedVerticalLocation, --storedHorizontalLocation)
               ) {
                 player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
                 returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
@@ -159,13 +160,12 @@ export class GameService {
     return returnedLocation;
   }
 
-  checkMove(board: Array<Array<string>>, playerVerticalLocation: number, playerHorizontalLocation: number): boolean {
-    let moveNumber = 0;
+  checkMoveValidity(board: Array<Array<string>>, playerVerticalLocation: number, playerHorizontalLocation: number): boolean {
     let warningOnBoard = false;
     let warningOnMountain = false;
     let isMoveValid = true;
 
-    if (board[playerVerticalLocation][playerHorizontalLocation] === 'M') {
+    if (board[playerVerticalLocation][playerHorizontalLocation].includes('M')) {
       warningOnMountain = true;
     }
 
@@ -176,7 +176,6 @@ export class GameService {
 
     if (warningOnBoard || warningOnMountain) {
       isMoveValid = false;
-      moveNumber++;
     }
 
     return isMoveValid;

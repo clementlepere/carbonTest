@@ -12,21 +12,25 @@ describe('GameService', () => {
     expect(service).toBeTruthy();
   });
 
-  // describe('getFinalScore', () => {
-  //   let gameService: GameService;
-  //   beforeEach(() => gameService = TestBed.get(GameService));
-
-  //   it('getFinalScore should return 1', () => {
-
-  //     const inputTreasuresData = Array<Treasure>();
-  //     inputTreasuresData.push(new Treasure(1, 1, 2));
-
-  //     const inputPlayersData = Array<Player>();
-  //     inputPlayersData.push(new Player('Lara', 1, 1, 'S', 'A'));
-
-  //     const expectedResult = 1;
-  //     expect(gameService.getPlayerScore(inputPlayersData, inputTreasuresData)).toEqual(expectedResult);
-  //   });
-  // });
-
+  describe('Check move', () => {
+    let gameService: GameService;
+    beforeEach(() => gameService = TestBed.get(GameService));
+    const board = [
+      ['X', 'M - 1 - 0', 'X'],
+      ['X', 'X', 'X'],
+      ['X', 'X', 'X'],
+    ];
+    it('Should return true to valid move', () => {
+      const playerVerticalLocation = 1;
+      const playerHorizontalLocation = 1;
+      const expectedResult = true;
+      expect(gameService.checkMoveValidity(board, playerVerticalLocation, playerHorizontalLocation)).toEqual(expectedResult);
+    });
+    it('Should return true to invalid move', () => {
+      const playerVerticalLocation = 0;
+      const playerHorizontalLocation = 1;
+      const expectedResult = false;
+      expect(gameService.checkMoveValidity(board, playerVerticalLocation, playerHorizontalLocation)).toEqual(expectedResult);
+    });
+  });
 });

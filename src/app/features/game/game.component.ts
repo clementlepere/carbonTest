@@ -6,7 +6,7 @@ import { take } from 'rxjs/operators';
 
 import { Board } from '@shared/models/board/board';
 import { Player } from '@shared/models/player/player';
-import Utils from '@shared/utils/Utils';
+import { Utils } from '@shared/utils/Utils';
 import { GameService } from './game.service';
 
 @Component({
