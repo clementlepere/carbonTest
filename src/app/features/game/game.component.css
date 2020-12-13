@@ -2,12 +2,16 @@
     width: 100%;
 }
 
+.app-background {
+    background-color: #ebebeb;
+}
+
 .app-full-width {
     width: 100%;
 }
 
 .app-card {
-    width: 60%;
+    width: 100%;
     padding: 10px;
 }
 

@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import Utils from '@app/shared/utils/Utils';
 
 @NgModule({
   declarations: [GameComponent],
@@ -20,7 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatGridListModule,
     FormsModule
   ],
-  providers: [GameService]
+  providers: [GameService, Utils]
 })
 
 export class GameModule { }

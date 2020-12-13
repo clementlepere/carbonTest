@@ -1,112 +1,184 @@
-import { Player } from '@shared/models/player/player';
-import { Board } from '@shared/models/board/board';
-import { Mountain } from '@shared/models/mountain/mountain';
-import { Treasure } from '@shared/models/treasure/treasure';
-
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
-import { cloneDeep } from 'lodash';
+import { Player } from '@shared/models/player/player';
 
 @Injectable()
 export class GameService {
 
   constructor() { }
 
-  movePlayer(player: Player): Player[] {
-    const playerMoves = Array<Player>();
-    const firstPlayer = new Player('', 0, 0, '', '');
-    Object.assign(firstPlayer, player);
-    playerMoves.push(firstPlayer);
-
-    for (const move of firstPlayer.path) {
-      const lastPlayer = new Player('', 0, 0, '', '');
-      Object.assign(lastPlayer, playerMoves[playerMoves.length - 1]);
+  movePlayer(board: Array<Array<string>>, player: Player): Array<Array<string>> {
+    const returnedBoard = board;
+    for (const move of player.path) {
+      let storedVerticalLocation = player.playerVerticalLocation;
+      let storedHorizontalLocation = player.playerHorizontalLocation;
       switch (move) {
         case 'A': {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case 'N': {
-              lastPlayer.playerVerticalLocation--;
+              if (this.checkMove(returnedBoard, --storedVerticalLocation, storedHorizontalLocation)
+              ) {
+                player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[--player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case 'S': {
-              lastPlayer.playerVerticalLocation++;
+              if (this.checkMove(returnedBoard, ++storedVerticalLocation, storedHorizontalLocation)
+              ) {
+                player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[++player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case 'E': {
-              lastPlayer.playerHorizontalLocation++;
+              if (this.checkMove(returnedBoard, storedVerticalLocation, ++storedHorizontalLocation)
+              ) {
+                player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][++player.playerHorizontalLocation] =
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case 'O': {
-              lastPlayer.playerHorizontalLocation--;
+              if (this.checkMove(returnedBoard, storedVerticalLocation, --storedHorizontalLocation)
+              ) {
+                player.score += this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] =
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][--player.playerHorizontalLocation] =
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
           }
           break;
         }
         case 'G': {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case 'N': {
-              lastPlayer.direction = 'O';
+              player.direction = 'O';
               break;
             }
             case 'S': {
-              lastPlayer.direction = 'E';
+              player.direction = 'E';
               break;
             }
             case 'E': {
-              lastPlayer.direction = 'N';
+              player.direction = 'N';
               break;
             }
             case 'O': {
-              lastPlayer.direction = 'S';
+              player.direction = 'S';
             }
           }
           break;
         }
         case 'D': {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case 'N': {
-              lastPlayer.direction = 'E';
+              player.direction = 'E';
               break;
             }
             case 'S': {
-              lastPlayer.direction = 'O';
+              player.direction = 'O';
               break;
             }
             case 'E': {
-              lastPlayer.direction = 'S';
+              player.direction = 'S';
               break;
             }
             case 'O': {
-              lastPlayer.direction = 'N';
+              player.direction = 'N';
               break;
             }
           }
           break;
         }
       }
-      playerMoves.push(lastPlayer);
     }
-    return playerMoves;
+    return returnedBoard;
   }
 
-  getPlayerScore(playerMoves: Player[], treasures: Treasure[]): number {
-    let finalScore = 0;
-    let playerCount = 0;
+  updateScore(location: string): number {
+    const returnedLocation = location;
+    let score = 0;
+    if (returnedLocation.includes('T - ')) {
+      const treasureString = returnedLocation.includes('/') ? returnedLocation.substr(0, returnedLocation.indexOf('/')) : location;
+      const lineElements = treasureString.split('-');
+      const retrievedTreasureScore = +lineElements[3];
+      if (retrievedTreasureScore > 0) {
+        score++;
+      }
+    }
+    return score;
+  }
 
-    const playerMovesCopy = _.cloneDeep(playerMoves);
+  updateOldBoardLocation(location: string): string {
+    let returnedLocation = location;
 
-    playerMovesCopy.forEach(playerMove => {
-      treasures.forEach(treasure => {
-        if (playerMove.playerHorizontalLocation === treasure.treasureHorizontalLocation
-          && playerMove.playerVerticalLocation === treasure.treasureVerticalLocation
-          && playerMove.path.charAt(playerCount) === 'A' && treasure.score > 0) {
-          finalScore++;
-          treasure.score--;
-        }
-      });
-      playerCount++;
-    });
-    return finalScore;
+    if (returnedLocation.includes('T - ')) {
+      const treasureString = returnedLocation.includes('/') ? returnedLocation.substr(0, returnedLocation.indexOf('/')) : location;
+      const lineElements = treasureString.split('-');
+      const treasureHorizontalLocation = +lineElements[1];
+      const treasureVerticalLocation = +lineElements[2];
+      const treasureScore = +lineElements[3];
+      returnedLocation = 'T - ' + treasureHorizontalLocation + ' - ' + treasureVerticalLocation + ' - '
+        + treasureScore;
+    } else {
+      returnedLocation = 'X';
+    }
+    return returnedLocation;
+  }
+
+  updateNewBoardLocation(location: string, player: Player): string {
+    let returnedLocation = location;
+
+    if (returnedLocation.includes('T - ')) {
+      const treasureString = returnedLocation.includes('/') ? returnedLocation.substr(0, returnedLocation.indexOf('/')) : location;
+      const lineElements = treasureString.split('-');
+      const treasureHorizontalLocation = +lineElements[1];
+      const treasureVerticalLocation = +lineElements[2];
+      let treasureScore = +lineElements[3];
+      treasureScore = +lineElements[3] > 0 ? --treasureScore : 0;
+      returnedLocation = (treasureScore === 0 ? '' : 'T - ' + treasureHorizontalLocation
+        + ' - ' + treasureVerticalLocation + ' - ' + treasureScore + '/') + 'A - ' + player.name + ' - '
+        + player.playerHorizontalLocation + ' - ' + player.playerVerticalLocation + ' - '
+        + player.direction + ' - ' + player.score;
+    } else {
+      returnedLocation = 'A - ' + player.name + ' - ' + player.playerHorizontalLocation + ' - ' + player.playerVerticalLocation + ' - '
+        + player.direction + ' - ' + player.score;
+    }
+    return returnedLocation;
+  }
+
+  checkMove(board: Array<Array<string>>, playerVerticalLocation: number, playerHorizontalLocation: number): boolean {
+    let moveNumber = 0;
+    let warningOnBoard = false;
+    let warningOnMountain = false;
+    let isMoveValid = true;
+
+    if (board[playerVerticalLocation][playerHorizontalLocation] === 'M') {
+      warningOnMountain = true;
+    }
+
+    if (playerHorizontalLocation > board.length || playerHorizontalLocation < 0
+      || playerVerticalLocation > board[0].length || playerVerticalLocation < 0) {
+      warningOnBoard = true;
+    }
+
+    if (warningOnBoard || warningOnMountain) {
+      isMoveValid = false;
+      moveNumber++;
+    }
+
+    return isMoveValid;
   }
 }

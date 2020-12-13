@@ -1,37 +1,37 @@
-<!-- <div class="container flex-column"> -->
-<!-- <input id="file-upload" type="file" accept=".txt" (change)="fileUpload($event)"> -->
-
-<!-- <textarea name="text" rows="4" cols="50" readonly>{{fileText}}</textarea> -->
-<!-- <input type="text" rows="4" cols="50" readonly>{{fileText}}</textarea> -->
-
-<!-- <div class="custom-file"> -->
-<!-- <input type="file" class="custom-file-input" id="customFile" (change)="fileUpload($event)">
-    <label class="custom-file-label" for="customFile">Choose file</label> -->
-<!-- <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-    <input hidden (change)="fileUpload($event)" #fileInput type="file" id="file">
-    <textarea name="text" rows="4" cols="50" readonly>{{fileText}}</textarea>
-  </div> -->
-<mat-grid-list cols="1" rowHeight="2:1">
-  <div class="app-main-div">
-    <mat-card class="app-card">
-      <mat-card-content>
-        <mat-form-field #fileTextForm class="app-full-width">
-          <button mat-raised-button color="primary" (click)="fileInput.click()">
-            <mat-icon>library_add</mat-icon>
-            <span> Select</span>
-            <input #fileInput type="file" (click)="fileInput.value = null" value="" (change)="fileUpload($event)"
-              style="display:none;" />
-          </button>
-          <textarea class="app-textArea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-            [(ngModel)]="fileText" readonly></textarea>
-        </mat-form-field>
-        <textarea *ngIf="finalOutput.length > 0" class="app-textArea" matInput cdkTextareaAutosize
-          #autosize="cdkTextareaAutosize" [(ngModel)]="finalOutput" readonly></textarea>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()"
-          [disabled]="!fileText">Start the hunt!</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</mat-grid-list>
+<div class="app-background">
+  <mat-grid-list cols="1" rowHeight="2:1">
+    <mat-grid-tile>
+      <div class="app-main-div">
+        <mat-card class="app-card">
+          <mat-card-content>
+            <mat-form-field #fileTextForm class="app-full-width">
+              <button mat-raised-button color="primary" (click)="fileInput.click()">
+                <mat-icon>library_add</mat-icon>
+                <span> Select</span>
+                <input #fileInput type="file" (click)="fileInput.value = null" value="" (change)="fileUpload($event)"
+                  style="display:none;" />
+              </button>
+              <textarea class="app-textArea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                [(ngModel)]="fileText" readonly></textarea>
+            </mat-form-field>
+            <textarea class="app-textArea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+              [(ngModel)]="finalOutput" readonly></textarea>
+            <section>
+              <table>
+                <tr *ngFor="let row of board; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
+                  <td class="field" *ngFor="let field of row">
+                    {{field}}
+                  </td>
+                </tr>
+              </table>
+            </section>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" style="margin:10px;" (click)="startGame()"
+              [disabled]="!fileText">Start the hunt!</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
