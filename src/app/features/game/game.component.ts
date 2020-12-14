@@ -41,7 +41,7 @@ export class GameComponent implements OnInit {
     private utils: Utils
   ) { }
 
-  @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
   ngOnInit() { }
 
