@@ -76,13 +76,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getPlayerScore">getPlayerScore</a>
-                            </li>
-                            <li>
-                                <a href="#getTreasuresLeft">getTreasuresLeft</a>
+                                <a href="#checkMoveValidity">checkMoveValidity</a>
                             </li>
                             <li>
                                 <a href="#movePlayer">movePlayer</a>
+                            </li>
+                            <li>
+                                <a href="#updateNewBoardLocation">updateNewBoardLocation</a>
+                            </li>
+                            <li>
+                                <a href="#updateOldBoardLocation">updateOldBoardLocation</a>
+                            </li>
+                            <li>
+                                <a href="#updateScore">updateScore</a>
                             </li>
                         </ul>
                     </td>
@@ -107,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/features/game/game.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/features/game/game.service.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -124,26 +130,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getPlayerScore"></a>
+                    <a name="checkMoveValidity"></a>
                     <span class="name">
                         <b>
-                            getPlayerScore
+                            checkMoveValidity
                         </b>
-                        <a href="#getPlayerScore"><span class="icon ion-ios-link"></span></a>
+                        <a href="#checkMoveValidity"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getPlayerScore(playerMoves: <a href="../classes/Player.html">Player[]</a>, treasures: <a href="../classes/Treasure.html">Treasure[]</a>)</code>
+<code>checkMoveValidity(board: Array<Array<string>>, playerVerticalLocation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, playerHorizontalLocation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/features/game/game.service.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/app/features/game/game.service.ts:163</a></div>
                 </td>
             </tr>
 
@@ -163,9 +169,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>playerMoves</td>
+                                    <td>board</td>
                                     <td>
-                                                <code><a href="../classes/Player.html" target="_self" >Player[]</a></code>
+                                            <code>Array&lt;Array&lt;string&gt;&gt;</code>
                                     </td>
 
                                     <td>
@@ -175,77 +181,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>treasures</td>
-                                    <td>
-                                                <code><a href="../classes/Treasure.html" target="_self" >Treasure[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getTreasuresLeft"></a>
-                    <span class="name">
-                        <b>
-                            getTreasuresLeft
-                        </b>
-                        <a href="#getTreasuresLeft"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getTreasuresLeft(finalScore: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, treasures: <a href="../classes/Treasure.html">Treasure[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/app/features/game/game.service.ts:110</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>finalScore</td>
+                                    <td>playerVerticalLocation</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -257,9 +193,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>treasures</td>
+                                    <td>playerHorizontalLocation</td>
                                     <td>
-                                                <code><a href="../classes/Treasure.html" target="_self" >Treasure[]</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -274,7 +210,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -299,15 +235,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>movePlayer(player: <a href="../classes/Player.html">Player</a>)</code>
+<code>movePlayer(board: Array<Array<string>>, player: <a href="../classes/Player.html">Player</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/features/game/game.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/app/features/game/game.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -327,6 +263,18 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>board</td>
+                                    <td>
+                                            <code>Array&lt;Array&lt;string&gt;&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>player</td>
                                     <td>
                                                 <code><a href="../classes/Player.html" target="_self" >Player</a></code>
@@ -344,7 +292,229 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Player.html" target="_self" >Player[]</a></code>
+                        <b>Returns : </b>    <code>Array&lt;Array&lt;string&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNewBoardLocation"></a>
+                    <span class="name">
+                        <b>
+                            updateNewBoardLocation
+                        </b>
+                        <a href="#updateNewBoardLocation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateNewBoardLocation(location: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, player: <a href="../classes/Player.html">Player</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/features/game/game.service.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>location</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>player</td>
+                                    <td>
+                                                <code><a href="../classes/Player.html" target="_self" >Player</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateOldBoardLocation"></a>
+                    <span class="name">
+                        <b>
+                            updateOldBoardLocation
+                        </b>
+                        <a href="#updateOldBoardLocation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateOldBoardLocation(location: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/app/features/game/game.service.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>location</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateScore"></a>
+                    <span class="name">
+                        <b>
+                            updateScore
+                        </b>
+                        <a href="#updateScore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateScore(location: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/features/game/game.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>location</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </div>
                     <div class="io-description">
@@ -360,126 +530,188 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Player } from &#x27;@shared/models/player/player&#x27;;
-import { Board } from &#x27;@shared/models/board/board&#x27;;
-import { Mountain } from &#x27;@shared/models/mountain/mountain&#x27;;
-import { Treasure } from &#x27;@shared/models/treasure/treasure&#x27;;
-
-import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Player } from &#x27;@shared/models/player/player&#x27;;
 
 @Injectable()
+
 export class GameService {
 
   constructor() { }
 
-  movePlayer(player: Player): Player[] {
-    const playerMoves &#x3D; Array&lt;Player&gt;();
-    const firstPlayer &#x3D; new Player(&#x27;&#x27;, 0, 0, &#x27;&#x27;, &#x27;&#x27;);
-    Object.assign(firstPlayer, player);
-    playerMoves.push(firstPlayer);
-
-    for (const move of firstPlayer.path) {
-      const lastPlayer &#x3D; new Player(&#x27;&#x27;, 0, 0, &#x27;&#x27;, &#x27;&#x27;);
-      Object.assign(lastPlayer, playerMoves[playerMoves.length - 1]);
+  movePlayer(board: Array&lt;Array&lt;string&gt;&gt;, player: Player): Array&lt;Array&lt;string&gt;&gt; {
+    const returnedBoard &#x3D; board;
+    for (const move of player.path) {
+      let storedVerticalLocation &#x3D; player.playerVerticalLocation;
+      let storedHorizontalLocation &#x3D; player.playerHorizontalLocation;
       switch (move) {
         case &#x27;A&#x27;: {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case &#x27;N&#x27;: {
-              lastPlayer.playerVerticalLocation--;
+              if (this.checkMoveValidity(returnedBoard, --storedVerticalLocation, storedHorizontalLocation)
+              ) {
+                player.score +&#x3D; this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[--player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case &#x27;S&#x27;: {
-              lastPlayer.playerVerticalLocation++;
+              if (this.checkMoveValidity(returnedBoard, ++storedVerticalLocation, storedHorizontalLocation)
+              ) {
+                player.score +&#x3D; this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[++player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case &#x27;E&#x27;: {
-              lastPlayer.playerHorizontalLocation++;
+              if (this.checkMoveValidity(returnedBoard, storedVerticalLocation, ++storedHorizontalLocation)
+              ) {
+                player.score +&#x3D; this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][++player.playerHorizontalLocation] &#x3D;
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
             case &#x27;O&#x27;: {
-              lastPlayer.playerHorizontalLocation--;
+              if (this.checkMoveValidity(returnedBoard, storedVerticalLocation, --storedHorizontalLocation)
+              ) {
+                player.score +&#x3D; this.updateScore(returnedBoard[storedVerticalLocation][storedHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation] &#x3D;
+                  this.updateOldBoardLocation(returnedBoard[player.playerVerticalLocation][player.playerHorizontalLocation]);
+                returnedBoard[player.playerVerticalLocation][--player.playerHorizontalLocation] &#x3D;
+                  this.updateNewBoardLocation(returnedBoard[storedVerticalLocation][storedHorizontalLocation], player);
+              }
               break;
             }
           }
           break;
         }
         case &#x27;G&#x27;: {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case &#x27;N&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;O&#x27;;
+              player.direction &#x3D; &#x27;O&#x27;;
               break;
             }
             case &#x27;S&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;E&#x27;;
+              player.direction &#x3D; &#x27;E&#x27;;
               break;
             }
             case &#x27;E&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;N&#x27;;
+              player.direction &#x3D; &#x27;N&#x27;;
               break;
             }
             case &#x27;O&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;S&#x27;;
+              player.direction &#x3D; &#x27;S&#x27;;
             }
           }
           break;
         }
         case &#x27;D&#x27;: {
-          switch (lastPlayer.direction) {
+          switch (player.direction) {
             case &#x27;N&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;E&#x27;;
+              player.direction &#x3D; &#x27;E&#x27;;
               break;
             }
             case &#x27;S&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;O&#x27;;
+              player.direction &#x3D; &#x27;O&#x27;;
               break;
             }
             case &#x27;E&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;S&#x27;;
+              player.direction &#x3D; &#x27;S&#x27;;
               break;
             }
             case &#x27;O&#x27;: {
-              lastPlayer.direction &#x3D; &#x27;N&#x27;;
+              player.direction &#x3D; &#x27;N&#x27;;
               break;
             }
           }
           break;
         }
       }
-      playerMoves.push(lastPlayer);
     }
-    return playerMoves;
+    return returnedBoard;
   }
 
-  getPlayerScore(playerMoves: Player[], treasures: Treasure[]): number {
-    let finalScore &#x3D; 0;
-    let playerCount &#x3D; 0;
-
-    playerMoves.forEach(playerMove &#x3D;&gt; {
-      treasures.forEach(treasure &#x3D;&gt; {
-        if (playerMove.playerHorizontalLocation &#x3D;&#x3D;&#x3D; treasure.treasureHorizontalLocation
-          &amp;&amp; playerMove.playerVerticalLocation &#x3D;&#x3D;&#x3D; treasure.treasureVerticalLocation
-          &amp;&amp; playerMove.path.charAt(playerCount) &#x3D;&#x3D;&#x3D; &#x27;A&#x27; &amp;&amp; treasure.score &gt; 0) {
-          finalScore++;
-          --treasure.score;
-        }
-      });
-      playerCount++;
-    });
-
-    return finalScore;
-  }
-
-  getTreasuresLeft(finalScore: number, treasures: Treasure[]): number {
-    let treasureCount &#x3D; 0;
-    treasures.forEach(treasure &#x3D;&gt; {
-      if (treasure.score &gt; 0) {
-        treasureCount +&#x3D; treasure.score;
+  updateScore(location: string): number {
+    const returnedLocation &#x3D; location;
+    let score &#x3D; 0;
+    if (returnedLocation.includes(&#x27;T - &#x27;)) {
+      const treasureString &#x3D; returnedLocation.includes(&#x27;/&#x27;) ? returnedLocation.substr(0, returnedLocation.indexOf(&#x27;/&#x27;)) : location;
+      const lineElements &#x3D; treasureString.split(&#x27;-&#x27;);
+      const retrievedTreasureScore &#x3D; +lineElements[3];
+      if (retrievedTreasureScore &gt; 0) {
+        score++;
       }
-    });
-
-    return treasureCount - finalScore;
+    }
+    return score;
   }
 
+  updateOldBoardLocation(location: string): string {
+    let returnedLocation &#x3D; location;
+
+    if (returnedLocation.includes(&#x27;T - &#x27;)) {
+      const treasureString &#x3D; returnedLocation.includes(&#x27;/&#x27;) ? returnedLocation.substr(0, returnedLocation.indexOf(&#x27;/&#x27;)) : location;
+      const lineElements &#x3D; treasureString.split(&#x27;-&#x27;);
+      const treasureHorizontalLocation &#x3D; +lineElements[1];
+      const treasureVerticalLocation &#x3D; +lineElements[2];
+      const treasureScore &#x3D; +lineElements[3];
+      returnedLocation &#x3D; &#x27;T - &#x27; + treasureHorizontalLocation + &#x27; - &#x27; + treasureVerticalLocation + &#x27; - &#x27;
+        + treasureScore;
+    } else {
+      returnedLocation &#x3D; &#x27;X&#x27;;
+    }
+    return returnedLocation;
+  }
+
+  updateNewBoardLocation(location: string, player: Player): string {
+    let returnedLocation &#x3D; location;
+
+    if (returnedLocation.includes(&#x27;T - &#x27;)) {
+      const treasureString &#x3D; returnedLocation.includes(&#x27;/&#x27;) ? returnedLocation.substr(0, returnedLocation.indexOf(&#x27;/&#x27;)) : location;
+      const lineElements &#x3D; treasureString.split(&#x27;-&#x27;);
+      const treasureHorizontalLocation &#x3D; +lineElements[1];
+      const treasureVerticalLocation &#x3D; +lineElements[2];
+      let treasureScore &#x3D; +lineElements[3];
+      treasureScore &#x3D; +lineElements[3] &gt; 0 ? --treasureScore : 0;
+      returnedLocation &#x3D; (treasureScore &#x3D;&#x3D;&#x3D; 0 ? &#x27;&#x27; : &#x27;T - &#x27; + treasureHorizontalLocation
+        + &#x27; - &#x27; + treasureVerticalLocation + &#x27; - &#x27; + treasureScore + &#x27;/&#x27;) + &#x27;A - &#x27; + player.name + &#x27; - &#x27;
+        + player.playerHorizontalLocation + &#x27; - &#x27; + player.playerVerticalLocation + &#x27; - &#x27;
+        + player.direction + &#x27; - &#x27; + player.score;
+    } else {
+      returnedLocation &#x3D; &#x27;A - &#x27; + player.name + &#x27; - &#x27; + player.playerHorizontalLocation + &#x27; - &#x27; + player.playerVerticalLocation + &#x27; - &#x27;
+        + player.direction + &#x27; - &#x27; + player.score;
+    }
+    return returnedLocation;
+  }
+
+  checkMoveValidity(board: Array&lt;Array&lt;string&gt;&gt;, playerVerticalLocation: number, playerHorizontalLocation: number): boolean {
+    let warningOnBoard &#x3D; false;
+    let warningOnMountain &#x3D; false;
+    let isMoveValid &#x3D; true;
+
+    if (board[playerVerticalLocation][playerHorizontalLocation].includes(&#x27;M&#x27;)) {
+      warningOnMountain &#x3D; true;
+    }
+
+    if (playerHorizontalLocation &gt; board.length || playerHorizontalLocation &lt; 0
+      || playerVerticalLocation &gt; board[0].length || playerVerticalLocation &lt; 0) {
+      warningOnBoard &#x3D; true;
+    }
+
+    if (warningOnBoard || warningOnMountain) {
+      isMoveValid &#x3D; false;
+    }
+
+    return isMoveValid;
+  }
 }
 </code></pre>
     </div>
@@ -515,6 +747,7 @@ export class GameService {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'GameService.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

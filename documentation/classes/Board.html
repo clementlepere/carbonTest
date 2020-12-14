@@ -80,9 +80,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#height">height</a>
                             </li>
                             <li>
+                                <a href="#map">map</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#width">width</a>
                             </li>
                         </ul>
@@ -109,7 +114,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/shared/models/board/board.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/shared/models/board/board.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -171,6 +176,7 @@
                         <a name="height"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Protected</span>
                             height</b>
                             <a href="#height"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -195,9 +201,36 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="map"></a>
+                        <span class="name">
+                            <b>
+                            map</b>
+                            <a href="#map"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array&lt;Array&lt;string&gt;&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/shared/models/board/board.ts:4</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="width"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Protected</span>
                             width</b>
                             <a href="#width"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -231,14 +264,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Board {
-    width: number;
-    height: number;
+    protected width: number;
+    protected height: number;
+    map &#x3D; Array&lt;Array&lt;string&gt;&gt;();
 
     constructor(width: number, height: number) {
         this.width &#x3D; (width &lt;&#x3D; 0 || width &#x3D;&#x3D;&#x3D; undefined)
             ? 0 : width;
         this.height &#x3D; (height &lt;&#x3D; 0 || height &#x3D;&#x3D;&#x3D; undefined)
             ? 0 : height;
+        for (let i &#x3D; 0; i &lt; this.height; i++) {
+            this.map[i] &#x3D; new Array();
+            for (let j &#x3D; 0; j &lt; this.width; j++) {
+                this.map[i][j] &#x3D; &#x27;X&#x27;;
+            }
+        }
     }
 }
 </code></pre>
@@ -270,6 +310,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'Board.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
