@@ -1,14 +1,14 @@
-import { Adventurer } from '../../../models/Adventurer/adventurer';
-import { IAdventurerFactory } from '../../interfaces/IAdventurerFactory';
+import { Adventurer } from '../../../../models/Adventurer/adventurer';
+import { IAdventurerFactory } from '../../../interfaces/IAdventurerFactory';
 
 export class AdventurerFactory implements IAdventurerFactory {
-  private adventurersCache: Map<string, Adventurer>;
+  private adventurersCache: Region<string, Adventurer>;
 
   public getOrAddAdventurer(
     name: string,
     x: number,
     y: number,
-    direction: string
+    direction: string,
   ): Adventurer {
     if (this.adventurersCache.has(name)) {
       return this.adventurersCache.get(name);

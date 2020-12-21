@@ -1,11 +1,8 @@
 import { Instruction } from './instruction';
-import { Map } from '../../models/Map/map';
+import { Region } from '../Region/region';
 
 export class TurnInstruction extends Instruction {
-  //   private turnFunction(): Action<Adventurer>;
-  // initialisé par le constructeur. Action<Adventurer> est juste une méthode qui retourne rien et prend un aventurier en param .
-
-  public execute(map: Map): Map {
+  public execute(region: Region): Region {
     switch (this.path) {
       case 'G': {
         switch (this.adventurer.direction) {
@@ -49,6 +46,6 @@ export class TurnInstruction extends Instruction {
         break;
       }
     }
-    return map;
+    return region;
   }
 }

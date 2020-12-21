@@ -1,5 +1,5 @@
 import { Adventurer } from '../Adventurer/adventurer';
-import { Map } from '../../models/Map/map';
+import { Region } from '../Region/region';
 
 export abstract class Instruction {
   readonly path: string;
@@ -10,5 +10,5 @@ export abstract class Instruction {
     this.adventurer = adenturer;
   }
 
-  abstract execute(map: Map): Map;
+  abstract execute(region: Region): Region;
 }

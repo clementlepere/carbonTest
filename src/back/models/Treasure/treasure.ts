@@ -1,10 +1,11 @@
 import { Coordinates } from '../Coordinates/coordinates';
 
-export class Treasure extends Coordinates {
+export class Treasure {
+  coordinates: Coordinates;
   score: number;
 
   constructor(x: number, y: number, score: number) {
-    super(x, y);
+    this.coordinates = new Coordinates(x,y);
     this.score = score;
   }
 

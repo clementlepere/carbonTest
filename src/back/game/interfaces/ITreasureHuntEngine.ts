@@ -1,6 +1,6 @@
 import { Instruction } from '../../models/Instruction/instruction';
-import { Map } from '../../models/Map/map';
+import { Region } from '../../models/Region/region';
 
 export interface ITreasureHuntEngine {
-  hunt(instructions: Instruction[], map: Map): Map;
+  hunt(instructions: Instruction[], region: Region): Region;
 }

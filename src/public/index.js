@@ -2,4 +2,4 @@
 import treasureHuntService from './treasureHuntService/treasureHuntService';
 console.log('index test');
 
-var dd = new treasureHuntService.huntForTreasures()
+const service = new treasureHuntService.huntForTreasures();

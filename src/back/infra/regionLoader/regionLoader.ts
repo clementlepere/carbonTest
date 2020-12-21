@@ -1,12 +1,12 @@
 import { IAdventurerFactory } from '../../game/interfaces/IAdventurerFactory';
 import { Adventurer } from '../../models/Adventurer/adventurer';
-import { Map } from '../../models/Map/map';
+import { Region } from '../../models/Region/region';
 import { Mountain } from '../../models/Mountain/mountain';
 import { Treasure } from '../../models/Treasure/treasure';
 import { IFileReader } from '../interfaces/IFileReader';
-import { IMapLoader } from '../interfaces/IMapLoader';
+import { IRegionLoader } from '../interfaces/IRegionLoader';
 
-export class MapLoader implements IMapLoader {
+export class RegionLoader implements IRegionLoader {
   private readonly adventurerFactory: IAdventurerFactory;
   private readonly fileReader: IFileReader;
 
@@ -15,15 +15,15 @@ export class MapLoader implements IMapLoader {
     this.fileReader = fileReader;
   }
 
-  public getMap(): Map {
-    const mapStringRepresentation = this.fileReader.getMapString();
+  public getRegion(): Region {
+    const regionStringRepresentation = this.fileReader.getRegionString();
     const treasures = Array<Treasure>();
     const mountains = Array<Mountain>();
     const adventurers = Array<Adventurer>();
     let xSize = 0;
     let ySize = 0;
 
-    mapStringRepresentation.forEach((line) => {
+    regionStringRepresentation.forEach((line) => {
       const lineElements = line.split('-');
       if (line.includes('M')) {
         xSize = +lineElements[1];
@@ -31,7 +31,7 @@ export class MapLoader implements IMapLoader {
       }
       if (line.includes('T')) {
         treasures.push(
-          new Treasure(+lineElements[1], +lineElements[2], +lineElements[3])
+          new Treasure(+lineElements[1], +lineElements[2], +lineElements[3]),
         );
       }
       if (line.includes('M')) {
@@ -43,11 +43,11 @@ export class MapLoader implements IMapLoader {
             lineElements[1],
             +lineElements[2],
             +lineElements[3],
-            lineElements[4]
-          )
+            lineElements[4],
+          ),
         );
       }
     });
-    return new Map(adventurers, mountains, treasures, xSize, ySize);
+    return new Region(adventurers, mountains, treasures, xSize, ySize);
   }
 }

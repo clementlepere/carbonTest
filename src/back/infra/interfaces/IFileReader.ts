@@ -1,4 +1,4 @@
 export interface IFileReader {
-    getMapString(): string[];
+    getRegionString(): string[];
     getInstructionsString(): string[];
 }

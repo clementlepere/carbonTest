@@ -1,9 +1,9 @@
-import { Map } from '../../models/Map/map';
+import { Region } from '../Region/region';
 import { Coordinates } from '../Coordinates/coordinates';
 import { Instruction } from './instruction';
 
 export class MoveInstruction extends Instruction {
-  execute(map: Map): Map {
+  execute(region: Region): Region {
     const storedVerticalLocation = this.adventurer.coordinates.x;
     const storedHorizontalLocation = this.adventurer.coordinates.y;
     let storedCoordinates: Coordinates;
@@ -40,52 +40,56 @@ export class MoveInstruction extends Instruction {
     }
 
     if (
-      this.checkMoveValidity(storedCoordinates, map) &&
-      map.adventurers.includes(this.adventurer)
+      this.checkMoveValidity(storedCoordinates, region) &&
+      region.adventurers.includes(this.adventurer)
     ) {
-      map.adventurers
+      region.adventurers
         .find((a) => a === this.adventurer)
         .move(storedCoordinates);
-      this.checkScore(storedCoordinates, map);
+      this.checkScore(storedCoordinates, region);
     }
 
-    return map;
+    return region;
   }
 
-  private checkMoveValidity(coordinates: Coordinates, map: Map): boolean {
-    let warningOnBoard = false;
-    let warningOnMountain = false;
+  private checkMoveValidity(coordinates: Coordinates, region: Region): boolean {
     let isMoveValid = true;
 
-    if (
-      map.mountains.some((m) => m.x === coordinates.x && m.y === coordinates.y)
-    ) {
-      warningOnMountain = true;
-    }
-
-    if (
-      coordinates.x > map.xSize ||
-      coordinates.x < 0 ||
-      coordinates.y > map.ySize ||
-      coordinates.y < map.ySize
-    ) {
-      warningOnBoard = true;
-    }
-
-    if (warningOnBoard || warningOnMountain) {
+    if (this.isInRegion(coordinates, region) || this.isInMountain(coordinates, region)) {
       isMoveValid = false;
     }
 
     return isMoveValid;
   }
 
-  private checkScore(coordinates: Coordinates, map: Map) {
+  private isInMountain(coordinates: Coordinates, region: Region): boolean {
+    let warningOnBoard = false;
+
     if (
-      map.treasures.some((t) => t.x === coordinates.x && t.y === coordinates.y)
+      coordinates.x > region.xSize ||
+      coordinates.x < 0 ||
+      coordinates.y > region.ySize ||
+      coordinates.y < region.ySize
     ) {
-      const treasure = map.treasures.find(
-        (t) => t.x === coordinates.x && t.y === coordinates.y
-      );
+      warningOnBoard = true;
+    }
+
+    return warningOnBoard;
+  }
+
+  private isInRegion(coordinates: Coordinates, region: Region): boolean {
+    let warningOnMountain = false;
+
+    if (region.mountains.some((m) => m.coordinates === coordinates)) {
+      warningOnMountain = true;
+    }
+
+    return warningOnMountain;
+  }
+
+  private checkScore(coordinates: Coordinates, region: Region) {
+    if (region.treasures.some((t) => t.coordinates === coordinates)) {
+      const treasure = region.treasures.find((t) => t.coordinates === coordinates);
       this.adventurer.increaseScore(treasure);
       treasure.takeTreasure();
     }

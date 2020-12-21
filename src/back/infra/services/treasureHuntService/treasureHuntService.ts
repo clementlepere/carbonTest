@@ -1,26 +1,32 @@
 import { ITreasureHuntEngine } from '../../../game/interfaces/iTreasureHuntEngine';
-import { Map } from '../../../models/Map/map';
+import { Region } from '../../../models/Region/region';
 import { IInstructionsLoader } from '../../interfaces/IInstructionsLoader';
-import { IMapLoader } from '../../interfaces/IMapLoader';
+import { IRegionLoader } from '../../interfaces/IRegionLoader';
+import { IRegionWriter } from '../../interfaces/IRegionWriter';
 
 export class TreasureHuntService {
   private readonly engine: ITreasureHuntEngine;
-  private readonly regionLoader: IMapLoader;
+  private readonly regionLoader: IRegionLoader;
   private readonly instructionLoader: IInstructionsLoader;
+  private readonly regionWriter: IRegionWriter;
 
   constructor(
     engine: ITreasureHuntEngine,
-    regionLoader: IMapLoader,
+    regionLoader: IRegionLoader,
     instructionLoader: IInstructionsLoader,
+    regionWriter: IRegionWriter,
   ) {
     this.engine = engine;
     this.regionLoader = regionLoader;
     this.instructionLoader = instructionLoader;
+    this.regionWriter = regionWriter;
   }
 
-  huntForTreasures(): Map {
+  huntForTreasures(): Region {
     const instructions = this.instructionLoader.getInstructions();
-    const region = this.regionLoader.getMap();
-    return this.engine.hunt(instructions, region);
+    const actualRegion = this.regionLoader.getRegion();
+    const returnedRegion = this.engine.hunt(instructions, actualRegion);
+    this.regionWriter.writeRegion(returnedRegion);
+    return returnedRegion;
   }
 }

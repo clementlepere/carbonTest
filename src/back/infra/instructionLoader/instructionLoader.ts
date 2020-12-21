@@ -17,8 +17,6 @@ export class InstructionLoader implements IInstructionsLoader {
   getInstructions(): Instruction[] {
     const instructions: Instruction[] = [];
     const instructionStringRepresentation = this.fileReader.getInstructionsString();
-    const turnInstructions: TurnInstruction[] = [];
-    const moveInstructions: MoveInstruction[] = [];
 
     instructionStringRepresentation.forEach((line) => {
       const lineElements = line.split('-');
@@ -27,30 +25,25 @@ export class InstructionLoader implements IInstructionsLoader {
           lineElements[1],
           +lineElements[2],
           +lineElements[3],
-          lineElements[4]
+          lineElements[4],
         );
         const path = lineElements[5];
+        // tslint:disable-next-line: prefer-const
         for (let i = 0; i < path.length; i + 1) {
           switch (path[i]) {
             case 'A':
-              moveInstructions.push(new MoveInstruction(path[i], adventurer));
+              instructions.push(new MoveInstruction(path[i], adventurer));
               break;
             case 'G': {
-              turnInstructions.push(new TurnInstruction(path[i], adventurer));
+              instructions.push(new TurnInstruction(path[i], adventurer));
               break;
             }
             case 'D': {
-              turnInstructions.push(new TurnInstruction(path[i], adventurer));
+              instructions.push(new TurnInstruction(path[i], adventurer));
               break;
             }
           }
         }
-        moveInstructions.forEach((moveInstruction) => {
-          instructions.push(moveInstruction);
-        });
-        turnInstructions.forEach((turnInstructions) => {
-          instructions.push(turnInstructions);
-        });
       }
     });
     return instructions;

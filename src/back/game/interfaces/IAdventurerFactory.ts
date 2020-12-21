@@ -1,4 +1,4 @@
-import { Adventurer } from "../../models/Adventurer/adventurer";
+import { Adventurer } from '../../models/Adventurer/adventurer';
 
 export interface IAdventurerFactory {
   getOrAddAdventurer(
