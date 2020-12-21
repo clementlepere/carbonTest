@@ -1,24 +1,14 @@
-import { Adventurer } from "../Adventurer/adventurer";
-import { Coordinates } from "../Coordinates/coordinates";
-import { Treasure } from "../Treasure/treasure";
+import { Adventurer } from '../Adventurer/adventurer';
+import { Map } from '../../models/Map/map';
 
-export class Instruction {
-    readonly path: string;
-    adventurer: Adventurer;
-    
-    constructor(path: string, adenturer: Adventurer){
-        this.path = path;
-        this.adventurer = adenturer;
-    }
-    move(coordinates: Coordinates, direction: string) {
-        return;
-    }
+export abstract class Instruction {
+  readonly path: string;
+  readonly adventurer: Adventurer;
 
-    takeTreasure(treasure: Treasure) {
+  constructor(path: string, adenturer: Adventurer) {
+    this.path = path;
+    this.adventurer = adenturer;
+  }
 
-    }
-
-    turn() {
-
-    }
+  abstract execute(map: Map): Map;
 }

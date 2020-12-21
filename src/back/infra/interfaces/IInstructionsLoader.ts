@@ -1,5 +1,5 @@
-import { Instruction } from "../../models/Instruction/instruction";
+import { Instruction } from '../../models/Instruction/instruction';
 
 export interface IInstructionsLoader {
-     getInstructions(): Instruction[];
+  getInstructions(): Instruction[];
 }

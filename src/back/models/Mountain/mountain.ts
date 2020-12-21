@@ -1,5 +1,3 @@
-import { PointOfInterest } from "../PointOfInterest/pointOfInterest";
+import { Coordinates } from '../Coordinates/coordinates';
 
-export class Mountain extends PointOfInterest {
-
-}
+export class Mountain extends Coordinates {}

@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { IFileReader } from "../interfaces/IFileReader";
+import { IFileReader } from '../interfaces/IFileReader';
 
 export class FileReader implements IFileReader {
     private readonly filePath: string;
@@ -19,7 +19,7 @@ export class FileReader implements IFileReader {
     };
 
     getMapString(): string[] {
-        const mapString = new Array<string>();
+        const mapString = Array<string>();
         this.fileString.forEach(line => {
             if (!line.includes('C')) {
                 mapString.push(line);
