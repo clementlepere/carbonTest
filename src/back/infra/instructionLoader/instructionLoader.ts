@@ -27,8 +27,7 @@ export class InstructionLoader implements IInstructionsLoader {
           lineElements[1],
           +lineElements[2],
           +lineElements[3],
-          lineElements[4],
-          0
+          lineElements[4]
         );
         const path = lineElements[5];
         for (let i = 0; i < path.length; i + 1) {

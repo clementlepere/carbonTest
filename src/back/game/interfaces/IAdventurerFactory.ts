@@ -6,6 +6,5 @@ export interface IAdventurerFactory {
     x: number,
     y: number,
     direction: string,
-    score: number,
   ): Adventurer;
 }

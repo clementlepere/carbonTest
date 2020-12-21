@@ -8,14 +8,13 @@ export class AdventurerFactory implements IAdventurerFactory {
     name: string,
     x: number,
     y: number,
-    direction: string,
-    score: number,
+    direction: string
   ): Adventurer {
     if (this.adventurersCache.has(name)) {
       return this.adventurersCache.get(name);
     }
 
-    const adventurer = new Adventurer(name, x, y, direction, score);
+    const adventurer = new Adventurer(name, x, y, direction);
     this.adventurersCache[name] = adventurer;
     return adventurer;
   }

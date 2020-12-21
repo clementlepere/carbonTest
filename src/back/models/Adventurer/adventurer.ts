@@ -12,9 +12,8 @@ export class Adventurer {
     x: number,
     y: number,
     direction: string,
-    score: number,
   ) {
-    this.score = score;
+    this.score = 0;
     this.coordinates = new Coordinates(x, y);
     this.direction = direction;
     this.name = name;
