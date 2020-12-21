@@ -31,7 +31,7 @@ export class MapLoader implements IMapLoader {
       }
       if (line.includes('T')) {
         treasures.push(
-          new Treasure(+lineElements[1], +lineElements[2], +lineElements[3]),
+          new Treasure(+lineElements[1], +lineElements[2], +lineElements[3])
         );
       }
       if (line.includes('M')) {
@@ -43,9 +43,8 @@ export class MapLoader implements IMapLoader {
             lineElements[1],
             +lineElements[2],
             +lineElements[3],
-            lineElements[4],
-            0,
-          ),
+            lineElements[4]
+          )
         );
       }
     });
