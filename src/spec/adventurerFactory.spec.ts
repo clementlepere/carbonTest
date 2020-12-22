@@ -1,4 +1,4 @@
-import { AdventurerFactory } from '../back/game/services/factory/adventurerFactory/adventurerFactory';
+import { AdventurerFactory } from '../back/game/services/adventurerFactory/adventurerFactory';
 import { Adventurer } from '../back/models/Adventurer/adventurer';
 
 describe('Get new Adventurer', () => {

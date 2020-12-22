@@ -1,5 +1,5 @@
-import { Adventurer } from '../../../../models/Adventurer/adventurer';
-import { IAdventurerFactory } from '../../../interfaces/IAdventurerFactory';
+import { Adventurer } from '../../../models/Adventurer/adventurer';
+import { IAdventurerFactory } from '../../interfaces/IAdventurerFactory';
 
 export class AdventurerFactory implements IAdventurerFactory {
   private adventurersCache: Map<string, Adventurer>;
