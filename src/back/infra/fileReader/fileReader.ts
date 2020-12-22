@@ -3,7 +3,6 @@ import { IFileReader } from '../interfaces/IFileReader';
 
 export class FileReader implements IFileReader {
   private readonly filePath: string;
-  // probably more a string array but it's just demo
   private fileString: string[];
 
   constructor(filePath: string) {
