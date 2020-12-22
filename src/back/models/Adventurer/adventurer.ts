@@ -7,12 +7,7 @@ export class Adventurer {
   direction: string;
   readonly name: string;
 
-  constructor(
-    name: string,
-    x: number,
-    y: number,
-    direction: string,
-  ) {
+  constructor(name: string, x: number, y: number, direction: string) {
     this.score = 0;
     this.coordinates = new Coordinates(x, y);
     this.direction = direction;
@@ -24,10 +19,7 @@ export class Adventurer {
   }
 
   increaseScore(treasure: Treasure) {
-    if (
-      treasure.x === this.coordinates.x &&
-      treasure.y === this.coordinates.y
-    ) {
+    if (treasure.coordinates === this.coordinates) {
       this.score + 1;
     }
   }

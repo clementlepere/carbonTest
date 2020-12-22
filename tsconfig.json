@@ -4,12 +4,10 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "./src",
-    "sourceMap": true
+    "sourceMap": true,
+    "skipLibCheck": true
   },
-  "files": [
-    "./node_modules/@types/mocha/index.d.ts",
-    "./node_modules/@types/node/index.d.ts"
-  ],
+
   "include": [
     "src/**/*.ts",
     "src/back/controllers/index.ts",

@@ -2,7 +2,7 @@ import { Adventurer } from '../../../../models/Adventurer/adventurer';
 import { IAdventurerFactory } from '../../../interfaces/IAdventurerFactory';
 
 export class AdventurerFactory implements IAdventurerFactory {
-  private adventurersCache: Region<string, Adventurer>;
+  private adventurersCache: Map<string, Adventurer>;
 
   public getOrAddAdventurer(
     name: string,
