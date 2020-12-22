@@ -1,4 +1,4 @@
-import { TreasureHuntEngine } from '../back/game/services/factory/adventurerFactory/engine/treasureHuntEngine';
+import { TreasureHuntEngine } from '../back/game/services/engine/treasureHuntEngine';
 import * as fs from 'fs';
 
 describe('Get new Adventurer', () => {

@@ -1,6 +1,6 @@
-import { Instruction } from '../../../../../models/Instruction/instruction';
-import { Region } from '../../../../../models/Region/region';
-import { ITreasureHuntEngine } from '../../../../interfaces/ITreasureHuntEngine';
+import { Instruction } from '../../../models/Instruction/instruction';
+import { Region } from '../../../models/Region/region';
+import { ITreasureHuntEngine } from '../../interfaces/ITreasureHuntEngine';
 
 export class TreasureHuntEngine implements ITreasureHuntEngine {
   hunt(instructions: Instruction[], region: Region): Region {
